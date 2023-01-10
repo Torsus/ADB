@@ -17,5 +17,6 @@ namespace ADB
         public static SqlConnection cnn;
         public static SqlCommand command;
         public static SqlDataReader dataReader;
+        public static string personnummer;
     }
 }

@@ -105,6 +105,7 @@ namespace ADB
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Datacontainer.personnummer = textBox1.Text + textBox12.Text;
             Form4 f4 = new Form4();
             f4.ShowDialog(); // Shows Form4
         }
