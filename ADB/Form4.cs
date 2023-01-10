@@ -26,7 +26,9 @@ namespace ADB
             dataGridView1.Columns.Add("Fornamn", "Fornamn");
             dataGridView1.Rows.Add("Value for column#1"); // [,"column 2",...]
             dataGridView1.Rows[0].Cells[0].Value = "1";
-            dataGridView1.Rows[0].Cells[1].Value = "Baqar";
+            dataGridView1.Rows[0].Cells[1].Value = Datacontainer.personnummer;
+            dataGridView1.Rows[0].Cells[2].Value = Datacontainer.Familyname;
+            dataGridView1.Rows[0].Cells[3].Value = Datacontainer.fornamn;
         }
     }
 }

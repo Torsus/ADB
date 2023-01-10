@@ -49,6 +49,7 @@ namespace ADB
             MessageBox.Show("Connection Open  !");
             Form2 f2 = new Form2();
             f2.ShowDialog(); // Shows Form2
+            this.Hide();
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)

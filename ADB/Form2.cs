@@ -15,6 +15,8 @@ namespace ADB
         public Form2()
         {
             InitializeComponent();
+          //  Form1 obj = (Form1)Application.OpenForms["Form1"];
+          //  obj.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)

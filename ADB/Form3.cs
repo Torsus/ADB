@@ -105,9 +105,30 @@ namespace ADB
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Datacontainer.personnummer = textBox1.Text + textBox12.Text;
+            String Sql;
+            
+            Datacontainer.personnummer = textBox1.Text + "-" + textBox12.Text;
+            //  Sql = "Select Familyname from dbo.[Patients] where [Personal number] = " + Datacontainer.personnummer;
+            Sql = "Select * from dbo.[Patients] where [Personal number] = '19121212-1212'";
+         //   Sql = "Select * from dbo.[Patients]";
+        //    Sql = "Select count(*) from dbo.[Patients]";
+            Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+            Datacontainer.command.CommandType = CommandType.Text;
+          //  Datacontainer.command.Parameters.AddWithValue("[Personal number]",Datacontainer.personnummer);
+            SqlDataReader reader = Datacontainer.command.ExecuteReader();
+            reader.Read();
+            //   int antal = (int)Datacontainer.command.ExecuteScalar();
+            // antal = (int)Datacontainer.command.ExecuteScalar();
+            Datacontainer.personnummer = (String)reader.GetValue(1);
+            Datacontainer.Familyname = (String)reader.GetValue(2);
+            Datacontainer.fornamn = (String)reader.GetValue(3);
             Form4 f4 = new Form4();
             f4.ShowDialog(); // Shows Form4
+        }
+
+        private void textBox12_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

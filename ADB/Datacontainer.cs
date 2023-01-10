@@ -18,5 +18,9 @@ namespace ADB
         public static SqlCommand command;
         public static SqlDataReader dataReader;
         public static string personnummer;
+        public static string Familyname;
+        public static string fornamn;
+      //  public Form1 f1 = new Form1();
+       // public Form2 f2 = new Form2();
     }
 }
