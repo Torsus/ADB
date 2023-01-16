@@ -51,6 +51,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -264,11 +266,31 @@
             this.textBox8.Size = new System.Drawing.Size(100, 20);
             this.textBox8.TabIndex = 22;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(754, 13);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(177, 13);
+            this.label10.TabIndex = 23;
+            this.label10.Text = "Svart - Ej kontrollerat personnummer";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(754, 43);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(190, 13);
+            this.label11.TabIndex = 24;
+            this.label11.Text = "Grönt - kontrollerat personnummer - OK";
+            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1019, 555);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label9);
@@ -326,5 +348,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
     }
 }
