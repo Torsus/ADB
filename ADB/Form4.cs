@@ -30,5 +30,12 @@ namespace ADB
             dataGridView1.Rows[0].Cells[2].Value = Datacontainer.Familyname;
             dataGridView1.Rows[0].Cells[3].Value = Datacontainer.fornamn;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form5 f5 = new Form5();
+            f5.Text = "Formulär 5";
+            f5.ShowDialog(); // Shows Form4
+        }
     }
 }
