@@ -15,8 +15,15 @@ namespace ADB
         public Form5()
         {
             InitializeComponent();
+            textBox1.Text = Datacontainer.personnummer;
         }
 
+        private void Form5_Load(object sender, EventArgs e)
+        {
+           
+           textBox1.Text = Datacontainer.personnummer;
+            
+        }
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
