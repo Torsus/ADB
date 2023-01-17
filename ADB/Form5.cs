@@ -15,14 +15,16 @@ namespace ADB
         public Form5()
         {
             InitializeComponent();
-            textBox1.Text = Datacontainer.personnummer;
+            this.Load += new EventHandler(this.Form5_Load);
+          //  textBox1.Text = Datacontainer.personnummer;
         }
 
         private void Form5_Load(object sender, EventArgs e)
         {
            
            textBox1.Text = Datacontainer.personnummer;
-            
+            textBox2.Text = Datacontainer.personnummer;
+
         }
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
