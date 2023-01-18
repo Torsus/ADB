@@ -31,6 +31,24 @@ namespace ADB
 
             textBox8.Text = (String)(Datacontainer.Familjenummer);
 
+            //String Sql;
+            //Sql = SELECT[dbo_View All Analyses].[Type Name], Count([dbo_View All Analyses].Index) AS Ordered, " & _
+            //     "COUNT([dbo_View All Analyses].[Answered Date]) AS Answered, 0 AS Invoiced, " & _
+            //     "SUM([dbo_View All Analyses].Price) AS Debited " & _
+            //     "INTO [Temp Statistics Accountable] " & _
+            //     "FROM [dbo_View All Analyses] " & _
+            //     "WHERE ((([dbo_View All Analyses].[Customer Name]) " & _
+            //     "LIKE """ & Forms![Form Statistics Accountable]![Accountable] & """) " & _
+            //     "AND (([dbo_View All Analyses].[Arrived date]) >= [Forms]![Form Statistics Accountable]![Low] " & _
+            //     "AND ([dbo_View All Analyses].[Arrived date]) <= [Forms]![Form Statistics Accountable]![High] " & _
+            //     "AND ([dbo_View All Analyses].[Price] > 0)) " & _
+            //     "GROUP BY [dbo_View All Analyses].[Type Name];"
+            //Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+            //Datacontainer.command.CommandType = CommandType.Text;
+            ////  Datacontainer.command.Parameters.AddWithValue("[Personal number]",Datacontainer.personnummer);
+            //SqlDataReader reader = Datacontainer.command.ExecuteReader();
+            //reader.Read();
+
         }
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
