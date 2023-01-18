@@ -122,6 +122,10 @@ namespace ADB
             Datacontainer.personnummer = (String)reader.GetValue(1);
             Datacontainer.Familyname = (String)reader.GetValue(2);
             Datacontainer.fornamn = (String)reader.GetValue(3);
+            Datacontainer.Signature = (String)reader.GetValue(6);
+            int tmpfamnum;
+            tmpfamnum = (int)reader.GetValue(7);
+            Datacontainer.Familjenummer = tmpfamnum.ToString();
             Form4 f4 = new Form4();
             f4.ShowDialog(); // Shows Form4
         }

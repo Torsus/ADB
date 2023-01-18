@@ -26,6 +26,10 @@ namespace ADB
             textBox2.Text = Datacontainer.personnummer;
             textBox3.Text = Datacontainer.Familyname;
             textBox4.Text = Datacontainer.fornamn;
+            textBox5.Text = Datacontainer.Signature;
+            textBox7.Text = Datacontainer.Familyname;
+
+            textBox8.Text = (String)(Datacontainer.Familjenummer);
 
         }
         private void textBox2_TextChanged(object sender, EventArgs e)
