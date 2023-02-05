@@ -109,23 +109,35 @@ namespace ADB
             
             Datacontainer.personnummer = textBox1.Text + "-" + textBox12.Text;
             //  Sql = "Select Familyname from dbo.[Patients] where [Personal number] = " + Datacontainer.personnummer;
-            Sql = "Select * from dbo.[Patients] where [Personal number] = '19121212-1212'";
+            Sql = "Select count(*) from dbo.[Patients] where [Personal number] = '" + textBox1.Text + "-" + textBox12.Text + "'";
          //   Sql = "Select * from dbo.[Patients]";
         //    Sql = "Select count(*) from dbo.[Patients]";
             Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
             Datacontainer.command.CommandType = CommandType.Text;
-          //  Datacontainer.command.Parameters.AddWithValue("[Personal number]",Datacontainer.personnummer);
-            SqlDataReader reader = Datacontainer.command.ExecuteReader();
-            reader.Read();
-            //   int antal = (int)Datacontainer.command.ExecuteScalar();
-            // antal = (int)Datacontainer.command.ExecuteScalar();
-            Datacontainer.personnummer = (String)reader.GetValue(1);
-            Datacontainer.Familyname = (String)reader.GetValue(2);
-            Datacontainer.fornamn = (String)reader.GetValue(3);
-            Datacontainer.Signature = (String)reader.GetValue(6);
-            int tmpfamnum;
-            tmpfamnum = (int)reader.GetValue(7);
-            Datacontainer.Familjenummer = tmpfamnum.ToString();
+            //  Datacontainer.command.Parameters.AddWithValue("[Personal number]",Datacontainer.personnummer);
+            int antal = (int)Datacontainer.command.ExecuteScalar();
+           // antal = (int)Datacontainer.command.ExecuteScalar();
+            if (antal > 0)
+            {
+
+                Sql = "Select * from dbo.[Patients] where [Personal number] = '" + textBox1.Text + "-" + textBox12.Text + "'";
+                Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+                Datacontainer.command.CommandType = CommandType.Text;
+                SqlDataReader reader = Datacontainer.command.ExecuteReader();
+                reader.Read();
+
+                Datacontainer.personnummer = (String)reader.GetValue(1);
+                Datacontainer.Familyname = (String)reader.GetValue(2);
+                Datacontainer.fornamn = (String)reader.GetValue(3);
+                Datacontainer.Signature = (String)reader.GetValue(6);
+                int tmpfamnum;
+                tmpfamnum = (int)reader.GetValue(7);
+                Datacontainer.Familjenummer = tmpfamnum.ToString();
+            }
+            else
+            {
+                Datacontainer.personnummer = textBox1.Text + "-" + textBox12.Text;
+            }
             Form4 f4 = new Form4();
             f4.ShowDialog(); // Shows Form4
         }

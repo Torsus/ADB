@@ -15,7 +15,7 @@ namespace ADB
         public static string connectsource;
         public static string connectstring;
         public static SqlConnection cnn;
-        public static SqlCommand command;
+        public static SqlCommand command,command2;
         public static SqlDataReader dataReader;
         public static string personnummer;
         public static string Familyname;
