@@ -22,7 +22,9 @@ namespace ADB
         public static string fornamn;
         public static string Signature;
         public static string Familjenummer;
-      //  public Form1 f1 = new Form1();
-       // public Form2 f2 = new Form2();
+        public static Boolean knappdisable1;
+        public static Boolean knappdisable2;
+        //  public Form1 f1 = new Form1();
+        // public Form2 f2 = new Form2();
     }
 }

@@ -119,7 +119,7 @@ namespace ADB
            // antal = (int)Datacontainer.command.ExecuteScalar();
             if (antal > 0)
             {
-
+                Datacontainer.knappdisable2 = true;
                 Sql = "Select * from dbo.[Patients] where [Personal number] = '" + textBox1.Text + "-" + textBox12.Text + "'";
                 Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
                 Datacontainer.command.CommandType = CommandType.Text;
@@ -136,6 +136,7 @@ namespace ADB
             }
             else
             {
+                Datacontainer.knappdisable1 = true;
                 Datacontainer.personnummer = textBox1.Text + "-" + textBox12.Text;
             }
             Form4 f4 = new Form4();

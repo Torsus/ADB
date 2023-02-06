@@ -29,9 +29,25 @@ namespace ADB
             dataGridView1.Rows[0].Cells[1].Value = Datacontainer.personnummer;
             dataGridView1.Rows[0].Cells[2].Value = Datacontainer.Familyname;
             dataGridView1.Rows[0].Cells[3].Value = Datacontainer.fornamn;
+            if (Datacontainer.knappdisable1)
+            {
+                button1.Enabled = false;
+            }
+            if (Datacontainer.knappdisable2)
+            {
+                button2.Enabled = false;
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            Form5 f5 = new Form5();
+            f5.Text = "Formulär 5";
+            f5.ShowDialog(); // Shows Form4
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
             Form5 f5 = new Form5();
             f5.Text = "Formulär 5";

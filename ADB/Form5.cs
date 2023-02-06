@@ -54,5 +54,13 @@ namespace ADB
         {
 
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            if(textBox3.Text.Length < 1)
+            {
+                MessageBox.Show("Du måste skriva in efternamn!");
+            }
+        }
     }
 }
