@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -61,6 +62,21 @@ namespace ADB
             {
                 MessageBox.Show("Du måste skriva in efternamn!");
             }
+            if (textBox7.Text.Length < 1)
+            {
+                MessageBox.Show("Du måste skriva in familjenamn!");
+            }
+            //if (textBox8.Text.Length < 1)
+            //{
+            //    MessageBox.Show("Du måste skriva in familjenummer!");
+            //}
+            //Förbered anrop store procedure
+            String Sql;
+            Sql = "sp_insert_patient";
+            Datacontainer.command = new System.Data.SqlClient.SqlCommand(Sql, Datacontainer.cnn);
+            Datacontainer.command.CommandType = CommandType.StoredProcedure;
+            Datacontainer.command.Parameters.Add(new SqlParameter("@personnummer", textBox1.Text));
+            Datacontainer.command.Parameters.Add(new SqlParameter("@Familyname", textBox3.Text));
         }
     }
 }
