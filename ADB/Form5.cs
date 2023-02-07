@@ -16,6 +16,8 @@ namespace ADB
         public Form5()
         {
             InitializeComponent();
+           // textBox8.Text = "0";
+           // textBox8.Update();
             this.Load += new EventHandler(this.Form5_Load);
           //  textBox1.Text = Datacontainer.personnummer;
         }
@@ -58,7 +60,8 @@ namespace ADB
 
         private void button10_Click(object sender, EventArgs e)
         {
-            if(textBox3.Text.Length < 1)
+            int famnummer;
+            if (textBox3.Text.Length < 1)
             {
                 MessageBox.Show("Du måste skriva in efternamn!");
             }
@@ -71,12 +74,54 @@ namespace ADB
             //    MessageBox.Show("Du måste skriva in familjenummer!");
             //}
             //Förbered anrop store procedure
-            String Sql;
-            Sql = "sp_insert_patient";
-            Datacontainer.command = new System.Data.SqlClient.SqlCommand(Sql, Datacontainer.cnn);
-            Datacontainer.command.CommandType = CommandType.StoredProcedure;
-            Datacontainer.command.Parameters.Add(new SqlParameter("@personnummer", textBox1.Text));
-            Datacontainer.command.Parameters.Add(new SqlParameter("@Familyname", textBox3.Text));
+            famnummer = 0;
+          //  textBox8.Text = "0";
+            Boolean giltigt_famnummer = true;
+            //  do
+            //  {
+            if (textBox8.Text.Length > 0)
+            {
+                try
+                {
+                    famnummer = Int32.Parse(textBox8.Text);
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Du måste ange giltigt numeriskt värde för familjenummer!");
+                    giltigt_famnummer = false;
+                }
+            }
+            else
+            {
+                famnummer = 0;
+            }
+            // } while (!giltigt_famnummer);
+            // Output: Unable to parse ''
+            if (giltigt_famnummer)
+            {
+                String Sql;
+                int VFChecked = 0;
+                int IdxPVFChecked = 0;
+                Sql = "sp_insert_patient";
+                Datacontainer.command = new System.Data.SqlClient.SqlCommand(Sql, Datacontainer.cnn);
+                Datacontainer.command.CommandType = CommandType.StoredProcedure;
+                Datacontainer.command.Parameters.Add(new SqlParameter("@personnummer", textBox1.Text));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Familyname", textBox3.Text));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@FirstName", textBox4.Text));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Indexpersonalnumber", textBox1.Text));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Other_s", "NULL"));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Signature", textBox5.Text));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Family", famnummer));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@VFChecked", VFChecked));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@IdxPVFChecked", IdxPVFChecked));
+                Datacontainer.dataReader = Datacontainer.command.ExecuteReader();
+                Datacontainer.dataReader.Close();
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -53,5 +53,10 @@ namespace ADB
             f5.Text = "Formulär 5";
             f5.ShowDialog(); // Shows Form4
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
