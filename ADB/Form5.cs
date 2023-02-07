@@ -51,26 +51,45 @@ namespace ADB
             reader.Read();
             int index;
              index = (int)reader.GetValue(0);
-            
-            //String Sql;
-            //Sql = SELECT[dbo_View All Analyses].[Type Name], Count([dbo_View All Analyses].Index) AS Ordered, " & _
-            //     "COUNT([dbo_View All Analyses].[Answered Date]) AS Answered, 0 AS Invoiced, " & _
-            //     "SUM([dbo_View All Analyses].Price) AS Debited " & _
-            //     "INTO [Temp Statistics Accountable] " & _
-            //     "FROM [dbo_View All Analyses] " & _
-            //     "WHERE ((([dbo_View All Analyses].[Customer Name]) " & _
-            //     "LIKE """ & Forms![Form Statistics Accountable]![Accountable] & """) " & _
-            //     "AND (([dbo_View All Analyses].[Arrived date]) >= [Forms]![Form Statistics Accountable]![Low] " & _
-            //     "AND ([dbo_View All Analyses].[Arrived date]) <= [Forms]![Form Statistics Accountable]![High] " & _
-            //     "AND ([dbo_View All Analyses].[Price] > 0)) " & _
-            //     "GROUP BY [dbo_View All Analyses].[Type Name];"
-            //Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
-            //Datacontainer.command.CommandType = CommandType.Text;
-            ////  Datacontainer.command.Parameters.AddWithValue("[Personal number]",Datacontainer.personnummer);
-            //SqlDataReader reader = Datacontainer.command.ExecuteReader();
-            //reader.Read();
 
-        }
+            //Now, we have the correct indexnumber from the patient...
+            reader.Close();
+            ///new reader...
+            ///
+            Sql = "Select * from dbo.[Analysis Blood] where Patient = " + index + "";
+            Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+            Datacontainer.command.CommandType = CommandType.Text;
+            SqlDataReader reader2 = Datacontainer.command.ExecuteReader();
+            int varv;
+            varv = -1;
+            while (reader2.Read())
+            {
+                varv++;
+                dataGridView1.Rows.Add();
+                dataGridView1.Rows[varv].Cells[0].Value = reader2.GetValue(8);
+                dataGridView1.Rows[varv].Cells[1].Value = "B";
+                
+            }
+
+                //String Sql;
+                //Sql = SELECT[dbo_View All Analyses].[Type Name], Count([dbo_View All Analyses].Index) AS Ordered, " & _
+                //     "COUNT([dbo_View All Analyses].[Answered Date]) AS Answered, 0 AS Invoiced, " & _
+                //     "SUM([dbo_View All Analyses].Price) AS Debited " & _
+                //     "INTO [Temp Statistics Accountable] " & _
+                //     "FROM [dbo_View All Analyses] " & _
+                //     "WHERE ((([dbo_View All Analyses].[Customer Name]) " & _
+                //     "LIKE """ & Forms![Form Statistics Accountable]![Accountable] & """) " & _
+                //     "AND (([dbo_View All Analyses].[Arrived date]) >= [Forms]![Form Statistics Accountable]![Low] " & _
+                //     "AND ([dbo_View All Analyses].[Arrived date]) <= [Forms]![Form Statistics Accountable]![High] " & _
+                //     "AND ([dbo_View All Analyses].[Price] > 0)) " & _
+                //     "GROUP BY [dbo_View All Analyses].[Type Name];"
+                //Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+                //Datacontainer.command.CommandType = CommandType.Text;
+                ////  Datacontainer.command.Parameters.AddWithValue("[Personal number]",Datacontainer.personnummer);
+                //SqlDataReader reader = Datacontainer.command.ExecuteReader();
+                //reader.Read();
+
+            }
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
