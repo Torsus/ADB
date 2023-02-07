@@ -84,10 +84,10 @@ namespace ADB
           //  Datacontainer.command2 = new SqlCommand(Sql, Datacontainer.cnn);
           //  Datacontainer.command2.CommandType = CommandType.Text;
          //   SqlDataReader reader3 = Datacontainer.command.ExecuteReader();
-            for (int a=0;a<varv;a++)
+            for (int a=0;a<=varv;a++)
             {
                 int b;
-                Sql = "select * from dbo.[Type Blood] where dbo.[Type Blood].Index = " + list[a] + "";
+                Sql = "select * from dbo.[Type Blood] where dbo.[Type Blood].[Index] = " + list[a] + "";
                 Datacontainer.command2 = new SqlCommand(Sql, Datacontainer.cnn);
                 Datacontainer.command2.CommandType = CommandType.Text;
                 SqlDataReader reader3 = Datacontainer.command2.ExecuteReader();
