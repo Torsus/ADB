@@ -133,6 +133,7 @@ namespace ADB
                 int tmpfamnum;
                 tmpfamnum = (int)reader.GetValue(7);
                 Datacontainer.Familjenummer = tmpfamnum.ToString();
+                reader.Close();
             }
             else
             {

@@ -34,6 +34,24 @@ namespace ADB
 
             textBox8.Text = (String)(Datacontainer.Familjenummer);
 
+            dataGridView1.Columns.Add("Inkommande datum", "Inkommande datum");
+            dataGridView1.Columns.Add("Analystyp", "Analystyp");
+            dataGridView1.Columns.Add("Arbetsnr", "Arbetsnr");
+            dataGridView1.Columns.Add("Frågeställning", "Frågeställning");
+            dataGridView1.Columns.Add("Typ av analys", "Typ av analys");
+            dataGridView1.Columns.Add("Resultat", "Resultat");
+            dataGridView1.Columns.Add("Typ av prov", "Typ av prov");
+            dataGridView1.Columns.Add("pris", "pris");
+
+            String Sql;
+            Sql = "Select * from dbo.[Patients] where [Personal number] = '" + Datacontainer.personnummer + "'";
+            Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+            Datacontainer.command.CommandType = CommandType.Text;
+            SqlDataReader reader = Datacontainer.command.ExecuteReader();
+            reader.Read();
+            int index;
+             index = (int)reader.GetValue(0);
+            
             //String Sql;
             //Sql = SELECT[dbo_View All Analyses].[Type Name], Count([dbo_View All Analyses].Index) AS Ordered, " & _
             //     "COUNT([dbo_View All Analyses].[Answered Date]) AS Answered, 0 AS Invoiced, " & _
