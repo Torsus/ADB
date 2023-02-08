@@ -71,6 +71,7 @@ namespace ADB
                 dataGridView1.Rows[varv].Cells[1].Value = "B";
                 dataGridView1.Rows[varv].Cells[2].Value = reader2.GetValue(0);
                 dataGridView1.Rows[varv].Cells[3].Value = reader2.GetValue(2);
+                dataGridView1.Rows[varv].Cells[6].Value = reader2.GetValue(40);
                 list.Add((int)reader2.GetValue(6));
                 ///Now we must find out the type////
                 //Sql = "select * from dbo.[type Blood] where index = " + reader2.GetValue(6) + "";
