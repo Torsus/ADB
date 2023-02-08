@@ -34,6 +34,8 @@ namespace ADB
 
             textBox8.Text = (String)(Datacontainer.Familjenummer);
 
+        //    DataGridViewTextBoxColumn idColumn = new DataGridViewTextBoxColumn();
+         //   idColumn.
             dataGridView1.Columns.Add("Inkommande datum", "Inkommande datum");
             dataGridView1.Columns.Add("Analystyp", "Analystyp");
             dataGridView1.Columns.Add("Arbetsnr", "Arbetsnr");
@@ -42,6 +44,14 @@ namespace ADB
             dataGridView1.Columns.Add("Resultat", "Resultat");
             dataGridView1.Columns.Add("Typ av prov", "Typ av prov");
             dataGridView1.Columns.Add("pris", "pris");
+            dataGridView1.Columns[0].Width = 75;
+            dataGridView1.Columns[1].Width = 40;
+            dataGridView1.Columns[2].Width = 60;
+            dataGridView1.Columns[3].Width = 60;
+            dataGridView1.Columns[4].Width = 260;
+            dataGridView1.Columns[5].Width = 260;
+            dataGridView1.Columns[6].Width = 260;
+            dataGridView1.Columns[7].Width = 110;
 
             String Sql;
             Sql = "Select * from dbo.[Patients] where [Personal number] = '" + Datacontainer.personnummer + "'";
@@ -56,23 +66,41 @@ namespace ADB
             reader.Close();
             ///new reader...
             ///
-            Sql = "Select * from dbo.[Analysis Blood] where dbo.[Analysis Blood].Patient = " + index + "";
+            //Sql = "Select * from dbo.[Analysis Blood] where dbo.[Analysis Blood].Patient = " + index + "";
+            //  Sql+= " UNION Select * from dbo.[Analysis DNA] where dbo.[Analysis DNA].Patient = " + index + "";
+            Sql = "Select [Index],[Arrived Date],Analysistype,Diagnosis,[Specimen Type],Price,Type,Result from dbo.[Analysis Blood] where dbo.[Analysis Blood].Patient = " + index + "";
+            Sql += " UNION Select [Index],[Arrived Date],Analysistype,Diagnosis,[Specimen Type],price,Type,Result from dbo.[Analysis Dna] where dbo.[Analysis Dna].Patient = " + index + "";
             Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
             Datacontainer.command.CommandType = CommandType.Text;
             SqlDataReader reader2 = Datacontainer.command.ExecuteReader();
             int varv;
             varv = -1;
             List<int> list = new List<int>();
+            List<int> list2 = new List<int>();
+            List<int> list3 = new List<int>();
+
             while (reader2.Read())
             {
                 varv++;
                 dataGridView1.Rows.Add();
                 dataGridView1.Rows[varv].Cells[0].Value = reader2.GetValue(1);
-                dataGridView1.Rows[varv].Cells[1].Value = "B";
+                if ((int)reader2.GetValue(2) ==1)
+                {
+                    dataGridView1.Rows[varv].Cells[1].Value = "B";
+                    list3.Add(1);
+                }
+                else if ((int)reader2.GetValue(2) == 4)
+                {
+                    dataGridView1.Rows[varv].Cells[1].Value = "DNA";
+                    list3.Add(4);
+                }
+                // dataGridView1.Rows[varv].Cells[1].Value = reader2.GetValue(1);
                 dataGridView1.Rows[varv].Cells[2].Value = reader2.GetValue(0);
-                dataGridView1.Rows[varv].Cells[3].Value = reader2.GetValue(2);
-                dataGridView1.Rows[varv].Cells[6].Value = reader2.GetValue(40);
+                dataGridView1.Rows[varv].Cells[3].Value = reader2.GetValue(3);
+                dataGridView1.Rows[varv].Cells[6].Value = reader2.GetValue(4);
+                dataGridView1.Rows[varv].Cells[7].Value = reader2.GetValue(5);
                 list.Add((int)reader2.GetValue(6));
+                list2.Add((int)reader2.GetValue(7));
                 ///Now we must find out the type////
                 //Sql = "select * from dbo.[type Blood] where index = " + reader2.GetValue(6) + "";
                 //Datacontainer.command2 = new SqlCommand(Sql, Datacontainer.cnn2);
@@ -82,21 +110,47 @@ namespace ADB
                 //dataGridView1.Rows[varv].Cells[4].Value = reader3.GetValue(1);
             }
             reader2.Close();
-          //  Datacontainer.command2 = new SqlCommand(Sql, Datacontainer.cnn);
-          //  Datacontainer.command2.CommandType = CommandType.Text;
-         //   SqlDataReader reader3 = Datacontainer.command.ExecuteReader();
-            for (int a=0;a<=varv;a++)
+            //  Datacontainer.command2 = new SqlCommand(Sql, Datacontainer.cnn);
+            //  Datacontainer.command2.CommandType = CommandType.Text;
+            //   SqlDataReader reader3 = Datacontainer.command.ExecuteReader();
+            for (int a = 0; a <= varv; a++)
             {
                 int b;
-                Sql = "select * from dbo.[Type Blood] where dbo.[Type Blood].[Index] = " + list[a] + "";
+                if (list3[a] == 1){
+                    Sql = "select * from dbo.[Type Blood] where dbo.[Type Blood].[Index] = " + list[a] + "";
+                }
+                else
+                {
+                    Sql = "select * from dbo.[Type DNA] where dbo.[Type DNA].[Index] = " + list[a] + "";
+                }
                 Datacontainer.command2 = new SqlCommand(Sql, Datacontainer.cnn);
                 Datacontainer.command2.CommandType = CommandType.Text;
                 SqlDataReader reader3 = Datacontainer.command2.ExecuteReader();
                 reader3.Read();
-                dataGridView1.Rows[a].Cells[4].Value = reader3.GetValue(1);
+                if (list3[a] == 1 || list3[a] == 4)
+                {
+                    dataGridView1.Rows[a].Cells[4].Value = reader3.GetValue(1);
+                }
+                else
+                {
+                    dataGridView1.Rows[a].Cells[4].Value = "dummy";
+                }
                 reader3.Close();
             }
-          //  reader3.Close();
+
+            for (int a = 0; a <= varv; a++)
+            {
+                int b;
+                Sql = "select * from dbo.[Result] where dbo.[Result].[Index] = " + list2[a] + "";
+                Datacontainer.command2 = new SqlCommand(Sql, Datacontainer.cnn);
+                Datacontainer.command2.CommandType = CommandType.Text;
+                SqlDataReader reader3 = Datacontainer.command2.ExecuteReader();
+                reader3.Read();
+                dataGridView1.Rows[a].Cells[5].Value = reader3.GetValue(1);
+                reader3.Close();
+            }
+
+            //  reader3.Close();
             //String Sql;
             //Sql = SELECT[dbo_View All Analyses].[Type Name], Count([dbo_View All Analyses].Index) AS Ordered, " & _
             //     "COUNT([dbo_View All Analyses].[Answered Date]) AS Answered, 0 AS Invoiced, " & _
