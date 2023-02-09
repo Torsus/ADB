@@ -24,6 +24,7 @@ namespace ADB
         public static string Familjenummer;
         public static string Doctor;
         public static string Customer_name;
+        public static string Spicemen_type;
         public static Boolean knappdisable1;
         public static Boolean knappdisable2;
         //  public Form1 f1 = new Form1();

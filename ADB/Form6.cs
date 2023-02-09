@@ -83,9 +83,43 @@ namespace ADB
 
             }
 
-            comboBox1.SelectedIndex = 0;
-            comboBox1.Refresh();
-            reader.Close();
+            comboBox2.SelectedIndex = 0;
+            comboBox2.Refresh();
+            reader2.Close();
+
+            /////////////////////////////////////////
+            Sql = "SELECT [Idx],[Specimen Type] FROM [dbo].[Specimen Type] ORDER BY [Specimen Type]";
+
+            Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+            Datacontainer.command.CommandType = CommandType.Text;
+            SqlDataReader reader3 = Datacontainer.command.ExecuteReader();
+            //   var items = new[];
+            // var items = new[];
+            while (reader3.Read())
+            {
+
+                if (reader3.GetValue(1) != DBNull.Value)
+                {
+                    Datacontainer.Spicemen_type = (String)reader3.GetValue(1);
+
+
+                    comboBox3.DisplayMember = "Text";
+                    comboBox3.ValueMember = "Value";
+
+                    var items = new[] {
+                     new { Text = Datacontainer.Spicemen_type, Value = Datacontainer.Spicemen_type }
+                    };
+                    comboBox3.Items.Add(Datacontainer.Spicemen_type);
+
+                }
+
+            }
+
+            comboBox3.SelectedIndex = 0;
+            comboBox3.Refresh();
+            reader3.Close();
+
+
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
