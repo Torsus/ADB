@@ -70,6 +70,14 @@ namespace ADB
             //  Sql+= " UNION Select * from dbo.[Analysis DNA] where dbo.[Analysis DNA].Patient = " + index + "";
             Sql = "Select [Index],[Arrived Date],Analysistype,Diagnosis,[Specimen Type],Price,Type,Result from dbo.[Analysis Blood] where dbo.[Analysis Blood].Patient = " + index + "";
             Sql += " UNION Select [Index],[Arrived Date],Analysistype,Diagnosis,[Specimen Type],price,Type,Result from dbo.[Analysis Dna] where dbo.[Analysis Dna].Patient = " + index + "";
+            Sql += " UNION Select [Index],[Arrived Date],Analysistype,Diagnosis,[Specimen Type],price,Type,Result from dbo.[Analysis Chorion] where dbo.[Analysis Chorion].Patient = " + index + "";
+            Sql += " UNION Select [Index],[Arrived Date],Analysistype,Diagnosis,[Specimen Type],price,Type,Result from dbo.[Analysis Counselling] where dbo.[Analysis Counselling].Patient = " + index + "";
+            Sql += " UNION Select [Index],[Arrived Date],Analysistype,Diagnosis,[Specimen Type],price,Type,Result from dbo.[Analysis Tumor] where dbo.[Analysis Tumor].Patient = " + index + "";
+            Sql += " UNION Select [Index],[Arrived Date],Analysistype,Diagnosis,[Specimen Type],price,Type,Result from dbo.[Analysis Amnion] where dbo.[Analysis Amnion].Patient = " + index + "";
+            Sql += " UNION Select [Index],[Arrived Date],Analysistype,Diagnosis,[Specimen Type],price,Type,Result from dbo.[Analysis FISH] where dbo.[Analysis FISH].Patient = " + index + "";
+          //  Sql += " UNION Select [Index],[Arrived Date],Analysistype,Diagnosis,[Specimen Type],price,Type,Result from dbo.[Analysis Counselling] where dbo.[Analysis Counselling].Patient = " + index + "";
+
+
             Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
             Datacontainer.command.CommandType = CommandType.Text;
             SqlDataReader reader2 = Datacontainer.command.ExecuteReader();
@@ -94,6 +102,36 @@ namespace ADB
                     dataGridView1.Rows[varv].Cells[1].Value = "DNA";
                     list3.Add(4);
                 }
+                else if ((int)reader2.GetValue(2) == 9)
+                {
+                    dataGridView1.Rows[varv].Cells[1].Value = "Ch";
+                    list3.Add(9);
+                }
+                else if ((int)reader2.GetValue(2) == 6)
+                {
+                    dataGridView1.Rows[varv].Cells[1].Value = "V";
+                    list3.Add(6);
+                }
+                else if ((int)reader2.GetValue(2) == 5)
+                {
+                    dataGridView1.Rows[varv].Cells[1].Value = "C";
+                    list3.Add(5);
+                }
+                else if ((int)reader2.GetValue(2) == 7)
+                {
+                    dataGridView1.Rows[varv].Cells[1].Value = "FA";
+                    list3.Add(7);
+                }
+                else if ((int)reader2.GetValue(2) == 3)
+                {
+                    dataGridView1.Rows[varv].Cells[1].Value = "IS";
+                    list3.Add(3);
+                }
+                //else if ((int)reader2.GetValue(2) == 6)
+                //{
+                //    dataGridView1.Rows[varv].Cells[1].Value = "V";
+                //    list3.Add(6);
+                //}
                 // dataGridView1.Rows[varv].Cells[1].Value = reader2.GetValue(1);
                 dataGridView1.Rows[varv].Cells[2].Value = reader2.GetValue(0);
                 dataGridView1.Rows[varv].Cells[3].Value = reader2.GetValue(3);
@@ -119,15 +157,43 @@ namespace ADB
                 if (list3[a] == 1){
                     Sql = "select * from dbo.[Type Blood] where dbo.[Type Blood].[Index] = " + list[a] + "";
                 }
-                else
+                else if(list3[a] ==4)
                 {
                     Sql = "select * from dbo.[Type DNA] where dbo.[Type DNA].[Index] = " + list[a] + "";
                 }
+                else if (list3[a] == 9)
+                {
+                    Sql = "select * from dbo.[Type Chorion] where dbo.[Type Chorion].[Index] = " + list[a] + "";
+                }
+                else if (list3[a] == 6)
+                {
+                    Sql = "select * from dbo.[Type Counselling] where dbo.[Type Counselling].[Index] = " + list[a] + "";
+                }
+                else if (list3[a] == 5)
+                {
+                    Sql = "select * from dbo.[Type Tumor] where dbo.[Type Tumor].[Index] = " + list[a] + "";
+                }
+                else if (list3[a] == 7)
+                {
+                    Sql = "select * from dbo.[Type Amnion] where dbo.[Type Amnion].[Index] = " + list[a] + "";
+                }
+                else if (list3[a] == 3)
+                {
+                    Sql = "select * from dbo.[Type FISH] where dbo.[Type FISH].[Index] = " + list[a] + "";
+                }
+                else if (list3[a] == 3)
+                {
+                    Sql = "select * from dbo.[Type FISH] where dbo.[Type FISH].[Index] = " + list[a] + "";
+                }
+                //else if (list3[a] == 6)
+                //{
+                //    Sql = "select * from dbo.[Analysis Counselling] where dbo.[Analysis Counselling].[Index] = " + list[a] + "";
+                //}
                 Datacontainer.command2 = new SqlCommand(Sql, Datacontainer.cnn);
                 Datacontainer.command2.CommandType = CommandType.Text;
                 SqlDataReader reader3 = Datacontainer.command2.ExecuteReader();
                 reader3.Read();
-                if (list3[a] == 1 || list3[a] == 4)
+                if (list3[a] == 1 || list3[a] == 4 || list3[a] ==9 || list3[a] ==6 || list3[a]==5 || list3[a] == 7 || list3[a] == 3 || list3[a]==6)
                 {
                     dataGridView1.Rows[a].Cells[4].Value = reader3.GetValue(1);
                 }
