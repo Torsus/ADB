@@ -10,20 +10,21 @@ using System.Windows.Forms;
 
 namespace ADB
 {
-    public partial class Form6 : Form
+    public partial class Form7 : Form
     {
-        public Form6()
+        public Form7()
         {
             InitializeComponent();
-           // Form7.ActiveForm.Dispose();
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void Skriv_Click(object sender, EventArgs e)
         {
-          //  Form7.
+            Form6 f6 = new Form6();
+            f6.Text = "Formulär 6";
+            f6.ShowDialog(); // Shows Form4
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }

@@ -306,5 +306,12 @@ namespace ADB
         {
             this.Close();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form7 f7 = new Form7();
+            f7.Text = "Formulär 7";
+            f7.ShowDialog(); // Shows Form4
+        }
     }
 }
