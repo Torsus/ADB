@@ -77,7 +77,7 @@ namespace ADB
                     var items = new[] {
                      new { Text = Datacontainer.Customer_name, Value = Datacontainer.Customer_name }
                     };
-                    comboBox1.Items.Add(Datacontainer.Customer_name);
+                    comboBox2.Items.Add(Datacontainer.Customer_name);
 
                 }
 
