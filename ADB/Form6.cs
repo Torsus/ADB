@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,76 @@ namespace ADB
         public Form6()
         {
             InitializeComponent();
-           // Form7.ActiveForm.Dispose();
+
+
+            String Sql;
+
+            Sql = "Select * from [dbo].[Doctor] order by Doctor";
+            Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+            Datacontainer.command.CommandType = CommandType.Text;
+            SqlDataReader reader = Datacontainer.command.ExecuteReader();
+            //   var items = new[];
+            // var items = new[];
+            while (reader.Read())
+            {
+                
+                if (reader.GetValue(1) != DBNull.Value)
+                {
+                    Datacontainer.Doctor = (String)reader.GetValue(1);
+                    
+
+                    comboBox2.DisplayMember = "Text";
+                    comboBox2.ValueMember = "Value";
+
+                    var items = new[] {
+                     new { Text = Datacontainer.Doctor, Value = Datacontainer.Doctor }
+                    };
+                    comboBox1.Items.Add(Datacontainer.Doctor);
+                    
+                }
+             
+            }
+           
+            comboBox1.SelectedIndex = 0;
+            comboBox1.Refresh();
+            reader.Close();
+
+            ///Avd/sjukhus
+            ///
+          //  Sql = "Select [Index],[Arrived Date],Analysistype,Diagnosis,[Specimen Type],Price,Type,Result from dbo.[Analysis Blood] where dbo.[Analysis Blood].Patient = " + index + "";
+
+
+            Sql = "SELECT DISTINCT [Index],[Customer name],CustomerID FROM [dbo].Orderer ";
+            Sql+= "WHERE Internal = 1 ORDER BY [Customer name]";
+
+            Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+            Datacontainer.command.CommandType = CommandType.Text;
+            SqlDataReader reader2 = Datacontainer.command.ExecuteReader();
+            //   var items = new[];
+            // var items = new[];
+            while (reader2.Read())
+            {
+
+                if (reader2.GetValue(1) != DBNull.Value)
+                {
+                    Datacontainer.Customer_name = (String)reader2.GetValue(1);
+
+
+                    comboBox2.DisplayMember = "Text";
+                    comboBox2.ValueMember = "Value";
+
+                    var items = new[] {
+                     new { Text = Datacontainer.Customer_name, Value = Datacontainer.Customer_name }
+                    };
+                    comboBox1.Items.Add(Datacontainer.Customer_name);
+
+                }
+
+            }
+
+            comboBox1.SelectedIndex = 0;
+            comboBox1.Refresh();
+            reader.Close();
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
