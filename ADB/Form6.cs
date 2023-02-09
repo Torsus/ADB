@@ -37,5 +37,30 @@ namespace ADB
         {
 
         }
+
+        private void label26_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label28_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox13_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox10_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label35_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
