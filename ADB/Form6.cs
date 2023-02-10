@@ -17,7 +17,7 @@ namespace ADB
         {
             InitializeComponent();
 
-            
+            Datacontainer.internbetalning = true;
             String Sql;
 
             Sql = "Select * from [dbo].[Doctor] order by Doctor";
@@ -168,11 +168,14 @@ namespace ADB
 
                     comboBox6.DisplayMember = "Text";
                     comboBox6.ValueMember = "Value";
+                    comboBox7.DisplayMember = "Text";
+                    comboBox7.ValueMember = "Value";
 
                     var items = new[] {
                      new { Text = Datacontainer.Result, Value = Datacontainer.Result }
                     };
                     comboBox6.Items.Add(Datacontainer.Result);
+                    comboBox7.Items.Add(Datacontainer.Result);
 
                 }
 
@@ -180,7 +183,114 @@ namespace ADB
 
             comboBox6.SelectedIndex = 0;
             comboBox6.Refresh();
+            comboBox7.SelectedIndex = 0;
+            comboBox7.Refresh();
             reader6.Close();
+
+            ////Quality
+
+            Sql = "SELECT DISTINCT [Index],Quality FROM [dbo].[Quality] ORDER BY Quality";
+
+            Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+            Datacontainer.command.CommandType = CommandType.Text;
+            SqlDataReader reader7 = Datacontainer.command.ExecuteReader();
+            //   var items = new[];
+            // var items = new[];
+            while (reader7.Read())
+            {
+
+                if (reader7.GetValue(1) != DBNull.Value)
+                {
+                    Datacontainer.Quality = (String)reader7.GetValue(1);
+
+
+                    comboBox8.DisplayMember = "Text";
+                    comboBox8.ValueMember = "Value";
+                  
+
+                    var items = new[] {
+                     new { Text = Datacontainer.Quality, Value = Datacontainer.Quality }
+                    };
+                    comboBox8.Items.Add(Datacontainer.Quality);
+
+                }
+
+            }
+
+            comboBox8.SelectedIndex = 0;
+            comboBox8.Refresh();
+            reader7.Close();
+
+
+            /////Frågeställning
+
+            Sql = "SELECT DISTINCT [Index],Diagnosis FROM [dbo].[Diagnosis List] ORDER BY Diagnosis";
+
+            Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+            Datacontainer.command.CommandType = CommandType.Text;
+            SqlDataReader reader8 = Datacontainer.command.ExecuteReader();
+            //   var items = new[];
+            // var items = new[];
+            while (reader8.Read())
+            {
+
+                if (reader8.GetValue(1) != DBNull.Value)
+                {
+                    Datacontainer.Diagnos= (String)reader8.GetValue(1);
+
+
+                    comboBox9.DisplayMember = "Text";
+                    comboBox9.ValueMember = "Value";
+
+
+                    var items = new[] {
+                     new { Text = Datacontainer.Diagnos, Value = Datacontainer.Diagnos }
+                    };
+                    comboBox9.Items.Add(Datacontainer.Diagnos);
+
+                }
+
+            }
+
+            comboBox9.SelectedIndex = 0;
+            comboBox9.Refresh();
+            reader8.Close();
+
+            /////Betalningsansvarig/////////////////////////////////////////////
+
+            Sql = "SELECT DISTINCT [Index],[Customer Name],CustomerID FROM [dbo].[View Accountable] where Internal = 1 ORDER BY [Customer Name]";
+
+            Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+            Datacontainer.command.CommandType = CommandType.Text;
+            SqlDataReader reader9 = Datacontainer.command.ExecuteReader();
+            //   var items = new[];
+            // var items = new[];
+            while (reader9.Read())
+            {
+
+                if (reader9.GetValue(1) != DBNull.Value)
+                {
+                    Datacontainer.Betalningsansvarig = (String)reader9.GetValue(1);
+
+
+                    comboBox10.DisplayMember = "Text";
+                    comboBox10.ValueMember = "Value";
+
+
+                    var items = new[] {
+                     new { Text = Datacontainer.Betalningsansvarig, Value = Datacontainer.Betalningsansvarig }
+                    };
+                    comboBox10.Items.Add(Datacontainer.Betalningsansvarig);
+
+                }
+
+            }
+
+            comboBox10.SelectedIndex = 0;
+            comboBox10.Refresh();
+            reader9.Close();
+
+
 
             //////////////////////////Analystyp/////////////////////////////////
 
@@ -358,6 +468,98 @@ namespace ADB
         private void label33_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkBox6_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Datacontainer.internbetalning)
+            {
+                Datacontainer.internbetalning = false;
+                String Sql;
+                Sql = "SELECT DISTINCT [Index],[Customer Name],CustomerID FROM [dbo].[View Accountable] where Internal = 0 ORDER BY [Customer Name]";
+
+                comboBox10.Items.Clear();
+                comboBox10.ResetText();
+
+                Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+                Datacontainer.command.CommandType = CommandType.Text;
+                SqlDataReader reader9 = Datacontainer.command.ExecuteReader();
+                //   var items = new[];
+                // var items = new[];
+                while (reader9.Read())
+                {
+
+                    if (reader9.GetValue(1) != DBNull.Value)
+                    {
+                        Datacontainer.Betalningsansvarig = (String)reader9.GetValue(1);
+
+
+                        comboBox10.DisplayMember = "Text";
+                        comboBox10.ValueMember = "Value";
+
+
+                        var items = new[] {
+                     new { Text = Datacontainer.Betalningsansvarig, Value = Datacontainer.Betalningsansvarig }
+                    };
+                        comboBox10.Items.Add(Datacontainer.Betalningsansvarig);
+
+                    }
+
+                }
+
+                comboBox10.SelectedIndex = 0;
+                comboBox10.Refresh();
+                reader9.Close();
+
+
+
+            }
+            else
+            {
+                Datacontainer.internbetalning = true;
+                String Sql;
+                Sql = "SELECT DISTINCT [Index],[Customer Name],CustomerID FROM [dbo].[View Accountable] where Internal = 1 ORDER BY [Customer Name]";
+
+                comboBox10.Items.Clear();
+                comboBox10.ResetText();
+
+                Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+                Datacontainer.command.CommandType = CommandType.Text;
+                SqlDataReader reader9 = Datacontainer.command.ExecuteReader();
+                //   var items = new[];
+                // var items = new[];
+                while (reader9.Read())
+                {
+
+                    if (reader9.GetValue(1) != DBNull.Value)
+                    {
+                        Datacontainer.Betalningsansvarig = (String)reader9.GetValue(1);
+
+
+                        comboBox10.DisplayMember = "Text";
+                        comboBox10.ValueMember = "Value";
+
+
+                        var items = new[] {
+                     new { Text = Datacontainer.Betalningsansvarig, Value = Datacontainer.Betalningsansvarig }
+                    };
+                        comboBox10.Items.Add(Datacontainer.Betalningsansvarig);
+
+                    }
+
+                }
+
+                comboBox10.SelectedIndex = 0;
+                comboBox10.Refresh();
+                reader9.Close();
+
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ///Inskrivning!
+           
         }
     }
 }
