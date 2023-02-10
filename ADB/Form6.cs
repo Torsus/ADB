@@ -17,7 +17,7 @@ namespace ADB
         {
             InitializeComponent();
 
-
+            
             String Sql;
 
             Sql = "Select * from [dbo].[Doctor] order by Doctor";
@@ -118,10 +118,88 @@ namespace ADB
             comboBox3.SelectedIndex = 0;
             comboBox3.Refresh();
             reader3.Close();
+            //////////////////////////7Analystyp/////////////////////////////////
+            if(Datacontainer.analystyp == 1)
+            {
+                Sql = "SELECT [Index],[Type] FROM [dbo].[Type Blood] ORDER BY [Type]";
+
+                Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+                Datacontainer.command.CommandType = CommandType.Text;
+                SqlDataReader reader4 = Datacontainer.command.ExecuteReader();
+                //   var items = new[];
+                // var items = new[];
+                while (reader4.Read())
+                {
+                    String typ;
+                    typ = "x";
+                    if((reader4.GetValue(1) != DBNull.Value)&&reader4.GetValue(1).ToString().Length>0){
+                        typ = (String)reader4.GetValue(1);
+                    }
+                    
+                    if (reader4.GetValue(1) != DBNull.Value && typ[0] != 'ö')
+                    {
+                        Datacontainer.analystyp_klartext = (String)reader4.GetValue(1);
 
 
+                        comboBox4.DisplayMember = "Text";
+                        comboBox4.ValueMember = "Value";
+
+                        var items = new[] {
+                     new { Text = Datacontainer.analystyp_klartext, Value = Datacontainer.analystyp_klartext }
+                    };
+                        comboBox4.Items.Add(Datacontainer.analystyp_klartext);
+
+                    }
+
+                }
+
+                comboBox4.SelectedIndex = 0;
+                comboBox4.Refresh();
+                reader4.Close();
+            }
+            /// DNA
+            else if (Datacontainer.analystyp == 4)
+            {
+                Sql = "SELECT DISTINCT [Index],[Type] FROM [dbo].[Type DNA] ORDER BY [Type]";
+
+                Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+                Datacontainer.command.CommandType = CommandType.Text;
+                SqlDataReader reader4 = Datacontainer.command.ExecuteReader();
+                //   var items = new[];
+                // var items = new[];
+                while (reader4.Read())
+                {
+                    String typ;
+                    typ = "x";
+                    if ((reader4.GetValue(1) != DBNull.Value) && reader4.GetValue(1).ToString().Length > 0)
+                    {
+                        typ = (String)reader4.GetValue(1);
+                    }
+
+                    if (reader4.GetValue(1) != DBNull.Value && typ[0] != 'ö')
+                    {
+                        Datacontainer.analystyp_klartext = (String)reader4.GetValue(1);
+
+
+                        comboBox4.DisplayMember = "Text";
+                        comboBox4.ValueMember = "Value";
+
+                        var items = new[] {
+                     new { Text = Datacontainer.analystyp_klartext, Value = Datacontainer.analystyp_klartext }
+                    };
+                        comboBox4.Items.Add(Datacontainer.analystyp_klartext);
+
+                    }
+
+                }
+
+                comboBox4.SelectedIndex = 0;
+                comboBox4.Refresh();
+                reader4.Close();
+            }
         }
 
+        /// 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
           //  Form7.
@@ -163,6 +241,61 @@ namespace ADB
         }
 
         private void label35_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //comboBox4.SetBounds(226, 265, 182, 24);
+        }
+
+        private void comboBox7_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label19_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label23_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox11_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox9_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label25_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label30_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label31_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label32_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label33_Click(object sender, EventArgs e)
         {
 
         }

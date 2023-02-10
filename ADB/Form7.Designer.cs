@@ -32,6 +32,7 @@
             this.Radiobutton2 = new System.Windows.Forms.RadioButton();
             this.Skriv = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // radioButton1
@@ -45,17 +46,19 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Blod";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // Radiobutton2
             // 
             this.Radiobutton2.AutoSize = true;
-            this.Radiobutton2.Location = new System.Drawing.Point(12, 74);
+            this.Radiobutton2.Location = new System.Drawing.Point(12, 180);
             this.Radiobutton2.Name = "Radiobutton2";
             this.Radiobutton2.Size = new System.Drawing.Size(59, 21);
             this.Radiobutton2.TabIndex = 1;
             this.Radiobutton2.TabStop = true;
             this.Radiobutton2.Text = "FISH";
             this.Radiobutton2.UseVisualStyleBackColor = true;
+            this.Radiobutton2.CheckedChanged += new System.EventHandler(this.Radiobutton2_CheckedChanged);
             // 
             // Skriv
             // 
@@ -78,11 +81,25 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton3.Location = new System.Drawing.Point(12, 80);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(114, 21);
+            this.radioButton3.TabIndex = 4;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Allmän DNA";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            // 
             // Form7
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(536, 380);
+            this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Skriv);
             this.Controls.Add(this.Radiobutton2);
@@ -100,5 +117,6 @@
         private System.Windows.Forms.RadioButton Radiobutton2;
         private System.Windows.Forms.Button Skriv;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RadioButton radioButton3;
     }
 }

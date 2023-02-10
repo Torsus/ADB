@@ -15,6 +15,7 @@ namespace ADB
         public Form7()
         {
             InitializeComponent();
+            Datacontainer.analystyp = 1;
         }
 
         private void Skriv_Click(object sender, EventArgs e)
@@ -27,6 +28,21 @@ namespace ADB
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            Datacontainer.analystyp = 1;
+        }
+
+        private void Radiobutton2_CheckedChanged(object sender, EventArgs e)
+        {
+            Datacontainer.analystyp = 3;
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            Datacontainer.analystyp = 4;
         }
     }
 }

@@ -27,6 +27,8 @@ namespace ADB
         public static string Spicemen_type;
         public static Boolean knappdisable1;
         public static Boolean knappdisable2;
+        public static int analystyp;
+        public static string analystyp_klartext;
         //  public Form1 f1 = new Form1();
         // public Form2 f2 = new Form2();
     }
