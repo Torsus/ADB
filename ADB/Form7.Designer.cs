@@ -38,6 +38,9 @@
             this.radioButton6 = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.radioButton8 = new System.Windows.Forms.RadioButton();
+            this.radioButton9 = new System.Windows.Forms.RadioButton();
+            this.radioButton10 = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // radioButton1
@@ -57,7 +60,7 @@
             // 
             this.Radiobutton2.AutoSize = true;
             this.Radiobutton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Radiobutton2.Location = new System.Drawing.Point(16, 159);
+            this.Radiobutton2.Location = new System.Drawing.Point(10, 159);
             this.Radiobutton2.Name = "Radiobutton2";
             this.Radiobutton2.Size = new System.Drawing.Size(63, 21);
             this.Radiobutton2.TabIndex = 1;
@@ -69,9 +72,9 @@
             // Skriv
             // 
             this.Skriv.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Skriv.Location = new System.Drawing.Point(230, 308);
+            this.Skriv.Location = new System.Drawing.Point(240, 308);
             this.Skriv.Name = "Skriv";
-            this.Skriv.Size = new System.Drawing.Size(75, 23);
+            this.Skriv.Size = new System.Drawing.Size(151, 48);
             this.Skriv.TabIndex = 2;
             this.Skriv.Text = "Skriv";
             this.Skriv.UseVisualStyleBackColor = true;
@@ -117,7 +120,7 @@
             // 
             this.radioButton5.AutoSize = true;
             this.radioButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton5.Location = new System.Drawing.Point(16, 203);
+            this.radioButton5.Location = new System.Drawing.Point(12, 203);
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.Size = new System.Drawing.Size(110, 21);
             this.radioButton5.TabIndex = 6;
@@ -130,7 +133,7 @@
             // 
             this.radioButton6.AutoSize = true;
             this.radioButton6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton6.Location = new System.Drawing.Point(16, 242);
+            this.radioButton6.Location = new System.Drawing.Point(10, 242);
             this.radioButton6.Name = "radioButton6";
             this.radioButton6.Size = new System.Drawing.Size(81, 21);
             this.radioButton6.TabIndex = 7;
@@ -162,11 +165,53 @@
             this.radioButton7.UseVisualStyleBackColor = true;
             this.radioButton7.CheckedChanged += new System.EventHandler(this.radioButton7_CheckedChanged);
             // 
+            // radioButton8
+            // 
+            this.radioButton8.AutoSize = true;
+            this.radioButton8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton8.Location = new System.Drawing.Point(323, 87);
+            this.radioButton8.Name = "radioButton8";
+            this.radioButton8.Size = new System.Drawing.Size(178, 21);
+            this.radioButton8.TabIndex = 10;
+            this.radioButton8.TabStop = true;
+            this.radioButton8.Text = "Kromoson Fibroblast";
+            this.radioButton8.UseVisualStyleBackColor = true;
+            this.radioButton8.CheckedChanged += new System.EventHandler(this.radioButton8_CheckedChanged);
+            // 
+            // radioButton9
+            // 
+            this.radioButton9.AutoSize = true;
+            this.radioButton9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton9.Location = new System.Drawing.Point(323, 123);
+            this.radioButton9.Name = "radioButton9";
+            this.radioButton9.Size = new System.Drawing.Size(159, 21);
+            this.radioButton9.TabIndex = 11;
+            this.radioButton9.TabStop = true;
+            this.radioButton9.Text = "Kromoson Amnion";
+            this.radioButton9.UseVisualStyleBackColor = true;
+            this.radioButton9.CheckedChanged += new System.EventHandler(this.radioButton9_CheckedChanged);
+            // 
+            // radioButton10
+            // 
+            this.radioButton10.AutoSize = true;
+            this.radioButton10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton10.Location = new System.Drawing.Point(323, 159);
+            this.radioButton10.Name = "radioButton10";
+            this.radioButton10.Size = new System.Drawing.Size(188, 21);
+            this.radioButton10.TabIndex = 12;
+            this.radioButton10.TabStop = true;
+            this.radioButton10.Text = "Kromosom Moderkaka";
+            this.radioButton10.UseVisualStyleBackColor = true;
+            this.radioButton10.CheckedChanged += new System.EventHandler(this.radioButton10_CheckedChanged);
+            // 
             // Form7
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(646, 380);
+            this.Controls.Add(this.radioButton10);
+            this.Controls.Add(this.radioButton9);
+            this.Controls.Add(this.radioButton8);
             this.Controls.Add(this.radioButton7);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.radioButton6);
@@ -196,5 +241,8 @@
         private System.Windows.Forms.RadioButton radioButton6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton radioButton7;
+        private System.Windows.Forms.RadioButton radioButton8;
+        private System.Windows.Forms.RadioButton radioButton9;
+        private System.Windows.Forms.RadioButton radioButton10;
     }
 }

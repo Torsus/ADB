@@ -141,10 +141,13 @@ namespace ADB
                     Sql = "SELECT DISTINCT [Index],[Type] FROM [dbo].[Type Counselling] ORDER BY [Type]";
                     break;
                 case 7:
+                    Sql = "SELECT DISTINCT [Index],[Type] FROM [dbo].[Type Amnion] ORDER BY [Type]";
                     break;
                 case 8:
+                    Sql = "SELECT DISTINCT [Index],[Type] FROM [dbo].[Type Fibroblast] ORDER BY [Type]";
                     break;
                 case 9:
+                    Sql = "SELECT DISTINCT [Index],[Type] FROM [dbo].[Type Chorion] ORDER BY [Type]";
                     break;
                 case 10:
                     Sql = "SELECT DISTINCT [Index],[Type] FROM [dbo].[Type Referral] ORDER BY [Type]";
