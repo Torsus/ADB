@@ -44,5 +44,25 @@ namespace ADB
         {
             Datacontainer.analystyp = 4;
         }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+            Datacontainer.analystyp = 5;
+        }
+
+        private void radioButton5_CheckedChanged(object sender, EventArgs e)
+        {
+            Datacontainer.analystyp = 6;
+        }
+
+        private void radioButton6_CheckedChanged(object sender, EventArgs e)
+        {
+            Datacontainer.analystyp = 10;
+        }
+
+        private void radioButton7_CheckedChanged(object sender, EventArgs e)
+        {
+            Datacontainer.analystyp = 2;
+        }
     }
 }

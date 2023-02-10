@@ -119,84 +119,77 @@ namespace ADB
             comboBox3.Refresh();
             reader3.Close();
             //////////////////////////7Analystyp/////////////////////////////////
-            if(Datacontainer.analystyp == 1)
+
+            switch(Datacontainer.analystyp)
             {
-                Sql = "SELECT [Index],[Type] FROM [dbo].[Type Blood] ORDER BY [Type]";
+                case 1:
+                    Sql = "SELECT [Index],[Type] FROM [dbo].[Type Blood] ORDER BY [Type]";
+                    break;
+                case 2:
+                    Sql = "SELECT [Index],[Type] FROM [dbo].[Type Foetus] ORDER BY [Type]";
+                    break;
+                case 3:
+                    Sql = "SELECT DISTINCT [Index],[Type] FROM [dbo].[Type FISH] ORDER BY [Type]";
+                    break;
+                case 4:
+                    Sql = "SELECT DISTINCT [Index],[Type] FROM [dbo].[Type DNA] ORDER BY [Type]";
+                    break;
+                case 5:
+                    Sql = "SELECT DISTINCT [Index],[Type] FROM [dbo].[Type Tumor] ORDER BY [Type]";
+                    break;
+                case 6:
+                    Sql = "SELECT DISTINCT [Index],[Type] FROM [dbo].[Type Counselling] ORDER BY [Type]";
+                    break;
+                case 7:
+                    break;
+                case 8:
+                    break;
+                case 9:
+                    break;
+                case 10:
+                    Sql = "SELECT DISTINCT [Index],[Type] FROM [dbo].[Type Referral] ORDER BY [Type]";
+                    break;
 
-                Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
-                Datacontainer.command.CommandType = CommandType.Text;
-                SqlDataReader reader4 = Datacontainer.command.ExecuteReader();
-                //   var items = new[];
-                // var items = new[];
-                while (reader4.Read())
+            }
+
+            Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+            Datacontainer.command.CommandType = CommandType.Text;
+            SqlDataReader reader4 = Datacontainer.command.ExecuteReader();
+            //   var items = new[];
+            // var items = new[];
+            while (reader4.Read())
+            {
+                String typ;
+                typ = "x";
+                if ((reader4.GetValue(1) != DBNull.Value) && reader4.GetValue(1).ToString().Length > 0)
                 {
-                    String typ;
-                    typ = "x";
-                    if((reader4.GetValue(1) != DBNull.Value)&&reader4.GetValue(1).ToString().Length>0){
-                        typ = (String)reader4.GetValue(1);
-                    }
-                    
-                    if (reader4.GetValue(1) != DBNull.Value && typ[0] != 'ö')
-                    {
-                        Datacontainer.analystyp_klartext = (String)reader4.GetValue(1);
+                    typ = (String)reader4.GetValue(1);
+                   
+                }
+
+                if (reader4.GetValue(1) != DBNull.Value && typ[0] != 'ö' && typ[0] != 'Ö')
+                {
+                    Datacontainer.analystyp_klartext = (String)reader4.GetValue(1);
 
 
-                        comboBox4.DisplayMember = "Text";
-                        comboBox4.ValueMember = "Value";
+                    comboBox4.DisplayMember = "Text";
+                    comboBox4.ValueMember = "Value";
 
-                        var items = new[] {
+                    var items = new[] {
                      new { Text = Datacontainer.analystyp_klartext, Value = Datacontainer.analystyp_klartext }
                     };
-                        comboBox4.Items.Add(Datacontainer.analystyp_klartext);
-
-                    }
+                    comboBox4.Items.Add(Datacontainer.analystyp_klartext);
 
                 }
 
-                comboBox4.SelectedIndex = 0;
-                comboBox4.Refresh();
-                reader4.Close();
             }
-            /// DNA
-            else if (Datacontainer.analystyp == 4)
-            {
-                Sql = "SELECT DISTINCT [Index],[Type] FROM [dbo].[Type DNA] ORDER BY [Type]";
 
-                Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
-                Datacontainer.command.CommandType = CommandType.Text;
-                SqlDataReader reader4 = Datacontainer.command.ExecuteReader();
-                //   var items = new[];
-                // var items = new[];
-                while (reader4.Read())
-                {
-                    String typ;
-                    typ = "x";
-                    if ((reader4.GetValue(1) != DBNull.Value) && reader4.GetValue(1).ToString().Length > 0)
-                    {
-                        typ = (String)reader4.GetValue(1);
-                    }
-
-                    if (reader4.GetValue(1) != DBNull.Value && typ[0] != 'ö')
-                    {
-                        Datacontainer.analystyp_klartext = (String)reader4.GetValue(1);
+            comboBox4.SelectedIndex = 0;
+            comboBox4.Refresh();
+            reader4.Close();
 
 
-                        comboBox4.DisplayMember = "Text";
-                        comboBox4.ValueMember = "Value";
-
-                        var items = new[] {
-                     new { Text = Datacontainer.analystyp_klartext, Value = Datacontainer.analystyp_klartext }
-                    };
-                        comboBox4.Items.Add(Datacontainer.analystyp_klartext);
-
-                    }
-
-                }
-
-                comboBox4.SelectedIndex = 0;
-                comboBox4.Refresh();
-                reader4.Close();
-            }
+           
         }
 
         /// 
