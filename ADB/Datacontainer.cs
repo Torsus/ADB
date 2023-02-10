@@ -25,6 +25,8 @@ namespace ADB
         public static string Doctor;
         public static string Customer_name;
         public static string Spicemen_type;
+        public static string Indication;
+        public static string Result;
         public static Boolean knappdisable1;
         public static Boolean knappdisable2;
         public static int analystyp;

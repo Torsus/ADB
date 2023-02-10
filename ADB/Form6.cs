@@ -118,9 +118,73 @@ namespace ADB
             comboBox3.SelectedIndex = 0;
             comboBox3.Refresh();
             reader3.Close();
-            //////////////////////////7Analystyp/////////////////////////////////
+            /////////////////Indikation
+            Sql = "SELECT DISTINCT [Index],Indication FROM [dbo].[Indication] ORDER BY Indication";
 
-            switch(Datacontainer.analystyp)
+            Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+            Datacontainer.command.CommandType = CommandType.Text;
+            SqlDataReader reader5 = Datacontainer.command.ExecuteReader();
+            //   var items = new[];
+            // var items = new[];
+            while (reader5.Read())
+            {
+
+                if (reader5.GetValue(1) != DBNull.Value)
+                {
+                    Datacontainer.Indication = (String)reader5.GetValue(1);
+
+
+                    comboBox5.DisplayMember = "Text";
+                    comboBox5.ValueMember = "Value";
+
+                    var items = new[] {
+                     new { Text = Datacontainer.Indication, Value = Datacontainer.Indication }
+                    };
+                    comboBox5.Items.Add(Datacontainer.Indication);
+
+                }
+
+            }
+
+            comboBox5.SelectedIndex = 0;
+            comboBox5.Refresh();
+            reader5.Close();
+
+            ///////////////////////Result///////////////////////////////////////////////
+            Sql = "SELECT DISTINCT [Index],Result FROM [dbo].[Result] ORDER BY Result";
+
+            Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+            Datacontainer.command.CommandType = CommandType.Text;
+            SqlDataReader reader6 = Datacontainer.command.ExecuteReader();
+            //   var items = new[];
+            // var items = new[];
+            while (reader6.Read())
+            {
+
+                if (reader6.GetValue(1) != DBNull.Value)
+                {
+                    Datacontainer.Result = (String)reader6.GetValue(1);
+
+
+                    comboBox6.DisplayMember = "Text";
+                    comboBox6.ValueMember = "Value";
+
+                    var items = new[] {
+                     new { Text = Datacontainer.Result, Value = Datacontainer.Result }
+                    };
+                    comboBox6.Items.Add(Datacontainer.Result);
+
+                }
+
+            }
+
+            comboBox6.SelectedIndex = 0;
+            comboBox6.Refresh();
+            reader6.Close();
+
+            //////////////////////////Analystyp/////////////////////////////////
+
+            switch (Datacontainer.analystyp)
             {
                 case 1:
                     Sql = "SELECT [Index],[Type] FROM [dbo].[Type Blood] ORDER BY [Type]";
