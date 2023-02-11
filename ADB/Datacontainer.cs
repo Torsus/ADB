@@ -18,6 +18,8 @@ namespace ADB
         public static SqlCommand command,command2;
         public static SqlDataReader dataReader;
         public static string personnummer;
+        public static int personnummerindex;
+        public static string tabell;
         public static string Familyname;
         public static string fornamn;
         public static string Signature;

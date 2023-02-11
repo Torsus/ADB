@@ -298,6 +298,7 @@ namespace ADB
             {
                 case 1:
                     Sql = "SELECT [Index],[Type] FROM [dbo].[Type Blood] ORDER BY [Type]";
+                    Datacontainer.tabell = "[dbo].[Type Blood]";
                     break;
                 case 2:
                     Sql = "SELECT [Index],[Type] FROM [dbo].[Type Foetus] ORDER BY [Type]";
@@ -559,7 +560,77 @@ namespace ADB
         private void button5_Click(object sender, EventArgs e)
         {
             ///Inskrivning!
-           
+            if (comboBox3.SelectedItem.ToString().Length < 1)
+            {
+                MessageBox.Show("Typ av prov måste väljas!");
+            }
+            else
+            {
+                /////Inskrivning
+                String Sql;
+
+                String Sql2;
+                Sql2 = "Select * from dbo.[Patients] where [Personal number] = '" + Datacontainer.personnummer + "'";
+                Datacontainer.command = new SqlCommand(Sql2, Datacontainer.cnn);
+                Datacontainer.command.CommandType = CommandType.Text;
+                SqlDataReader reader2 = Datacontainer.command.ExecuteReader();
+                reader2.Read();
+                // int personnummerindex;
+                Datacontainer.personnummerindex = (int)reader2.GetValue(0);
+
+
+
+                Sql = "sp_insert_enkel2";
+                Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+                Datacontainer.command.CommandType = CommandType.StoredProcedure;
+
+
+
+                Datacontainer.command.Parameters.Add(new SqlParameter("@tabell", Datacontainer.tabell));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@analystyp", Datacontainer.analystyp));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@patient", Datacontainer.personnummerindex));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Signature", textBox1.Text));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@SubmitterName", "GB"));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Submitter", "xx"));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Type", 1));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Urgent", 1));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Arriveddate_s", "20121001"));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@InvoiceDate_s", "20121002"));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Indication", 1));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Research", 1));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Savedmaterial", 1));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Canister", "xxx"));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Box", "fg"));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Number", "123"));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Remark", "yyyy"));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@OrdererInternal", 1));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Orderer", 1));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@AccountableInternal", 1));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Accountable", 1));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Result", 7));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Quality", 8));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Diagnosis", "fel"));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@McKusick_s", "12"));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Answered", 1));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Price_s", "1000"));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@AnsweredDate_s", "20230211"));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@InvoiceNr", 10));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Doctor", 11));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Metaphase", "yyy"));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Locked", 1));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Change", "zzz"));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@ResultInternal", "tt"));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Prenatal", 1));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@ResultInternal2", 100));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Family", 200));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@CareDate_s", "20121003"));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@SpecimenType", "xxx"));
+
+                Datacontainer.dataReader = Datacontainer.command.ExecuteReader();
+                Datacontainer.dataReader.Close();
+                MessageBox.Show("Inskrivning klar!");
+            }
+                
         }
     }
 }
