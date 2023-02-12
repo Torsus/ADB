@@ -590,7 +590,7 @@ namespace ADB
                 Datacontainer.command.Parameters.Add(new SqlParameter("@analystyp", Datacontainer.analystyp));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@patient", Datacontainer.personnummerindex));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Signature", textBox1.Text));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@SubmitterName", "GB"));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@SubmitterName", "textBox2.Text"));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Submitter", "xx"));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Type", 1));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Urgent", 1));
