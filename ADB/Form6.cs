@@ -17,6 +17,8 @@ namespace ADB
         {
             InitializeComponent();
 
+            //      var Indikationlist = new System.Collections.ArrayList();
+            Datacontainer.forskning = 0;
             Datacontainer.internbetalning = true;
             String Sql;
 
@@ -119,7 +121,7 @@ namespace ADB
             comboBox3.Refresh();
             reader3.Close();
             /////////////////Indikation
-            Sql = "SELECT DISTINCT [Index],Indication FROM [dbo].[Indication] ORDER BY Indication";
+            Sql = "SELECT DISTINCT [Index],Indication FROM [dbo].[Indication] ORDER BY [Index]";
 
             Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
             Datacontainer.command.CommandType = CommandType.Text;
@@ -141,7 +143,7 @@ namespace ADB
                      new { Text = Datacontainer.Indication, Value = Datacontainer.Indication }
                     };
                     comboBox5.Items.Add(Datacontainer.Indication);
-
+                   // Indikationlist.Add(Datacontainer.Indication);
                 }
 
             }
@@ -366,7 +368,8 @@ namespace ADB
             comboBox4.Refresh();
             reader4.Close();
 
-
+            Datacontainer.fortur = 0;
+            Datacontainer.indikation = 1;
            
         }
 
@@ -593,11 +596,11 @@ namespace ADB
                 Datacontainer.command.Parameters.Add(new SqlParameter("@SubmitterName", textBox3.Text));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Submitter", textBox2.Text));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Type", Datacontainer.analystyp));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@Urgent", 1));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@Arriveddate_s", "20121001"));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@InvoiceDate_s", "20121002"));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@Indication", 1));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@Research", 1));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Urgent", Datacontainer.fortur));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Arriveddate_s", textBox6.Text));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@InvoiceDate_s", textBox7.Text));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Indication", Datacontainer.indikation));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Research", Datacontainer.forskning));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Savedmaterial", 1));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Canister", "xxx"));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Box", "fg"));
@@ -631,6 +634,53 @@ namespace ADB
                 MessageBox.Show("Inskrivning klar!");
             }
                 
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if(Datacontainer.fortur == 0)
+            {
+                Datacontainer.fortur = 1;
+            }
+            else if(Datacontainer.fortur == 1)
+            {
+                Datacontainer.fortur = 0;
+            }
+        }
+
+        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           // int indikation = comboBox2.Items.IndexOf
+             int index = comboBox5.FindString(comboBox5.SelectedItem.ToString());
+            index++;
+          //  comboBox5.SelectedIndex = index;
+            Datacontainer.indikation = index;
+            //String Sql;
+            //Sql = "Select [Index],Indication from dbo.Indication where dbo.[Indication].Indication = " + comboBox2.SelectedItem.ToString() + "";
+
+
+            //Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+            //Datacontainer.command.CommandType = CommandType.Text;
+            //SqlDataReader reader10 = Datacontainer.command.ExecuteReader();
+
+            //Datacontainer.indikation = (int)reader10.GetValue(0);
+            //reader10.Close();
+
+
+
+
+        }
+
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+            if(Datacontainer.forskning == 0)
+            {
+                Datacontainer.forskning = 1;
+            }
+            else if(Datacontainer.forskning == 1)
+            {
+                Datacontainer.forskning = 0;
+            }
         }
     }
 }

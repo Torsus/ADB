@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -35,6 +36,9 @@ namespace ADB
         public static Boolean knappdisable1;
         public static Boolean knappdisable2;
         public static int analystyp;
+        public static int fortur;
+        public static int indikation;
+        public static int forskning;
         public static string analystyp_klartext;
         public static bool internbetalning;
         //  public Form1 f1 = new Form1();
