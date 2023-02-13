@@ -41,6 +41,7 @@ namespace ADB
         public static int forskning;
         public static string analystyp_klartext;
         public static bool internbetalning;
+        public static int orderer_internal;
         //  public Form1 f1 = new Form1();
         // public Form2 f2 = new Form2();
     }

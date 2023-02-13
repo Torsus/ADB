@@ -30,11 +30,11 @@ namespace ADB
             // var items = new[];
             while (reader.Read())
             {
-                
+
                 if (reader.GetValue(1) != DBNull.Value)
                 {
                     Datacontainer.Doctor = (String)reader.GetValue(1);
-                    
+
 
                     comboBox2.DisplayMember = "Text";
                     comboBox2.ValueMember = "Value";
@@ -43,11 +43,11 @@ namespace ADB
                      new { Text = Datacontainer.Doctor, Value = Datacontainer.Doctor }
                     };
                     comboBox1.Items.Add(Datacontainer.Doctor);
-                    
+
                 }
-             
+
             }
-           
+
             comboBox1.SelectedIndex = 0;
             comboBox1.Refresh();
             reader.Close();
@@ -58,7 +58,7 @@ namespace ADB
 
 
             Sql = "SELECT DISTINCT [Index],[Customer name],CustomerID FROM [dbo].Orderer ";
-            Sql+= "WHERE Internal = 1 ORDER BY [Customer name]";
+            Sql += "WHERE Internal = 1 ORDER BY [Customer name]";
 
             Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
             Datacontainer.command.CommandType = CommandType.Text;
@@ -143,14 +143,14 @@ namespace ADB
                      new { Text = Datacontainer.Indication, Value = Datacontainer.Indication }
                     };
                     comboBox5.Items.Add(Datacontainer.Indication);
-                   // Indikationlist.Add(Datacontainer.Indication);
+                    // Indikationlist.Add(Datacontainer.Indication);
                 }
 
             }
             reader5.Close();
             comboBox5.SelectedIndex = 0;
             comboBox5.Refresh();
-           
+
 
             ///////////////////////Result///////////////////////////////////////////////
             Sql = "SELECT DISTINCT [Index],Result FROM [dbo].[Result] ORDER BY Result";
@@ -208,7 +208,7 @@ namespace ADB
 
                     comboBox8.DisplayMember = "Text";
                     comboBox8.ValueMember = "Value";
-                  
+
 
                     var items = new[] {
                      new { Text = Datacontainer.Quality, Value = Datacontainer.Quality }
@@ -238,7 +238,7 @@ namespace ADB
 
                 if (reader8.GetValue(1) != DBNull.Value)
                 {
-                    Datacontainer.Diagnos= (String)reader8.GetValue(1);
+                    Datacontainer.Diagnos = (String)reader8.GetValue(1);
 
 
                     comboBox9.DisplayMember = "Text";
@@ -344,7 +344,7 @@ namespace ADB
                 if ((reader4.GetValue(1) != DBNull.Value) && reader4.GetValue(1).ToString().Length > 0)
                 {
                     typ = (String)reader4.GetValue(1);
-                   
+
                 }
 
                 if (reader4.GetValue(1) != DBNull.Value && typ[0] != 'ö' && typ[0] != 'Ö')
@@ -370,13 +370,13 @@ namespace ADB
 
             Datacontainer.fortur = 0;
             Datacontainer.indikation = 1;
-           
+
         }
 
         /// 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-          //  Form7.
+            //  Form7.
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -606,7 +606,7 @@ namespace ADB
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Box", "NULL"));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Number", "NULL"));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Remark", textBox8.Text));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@OrdererInternal", 1));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@OrdererInternal", Datacontainer.orderer_internal));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Orderer", 1));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@AccountableInternal", 1));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Accountable", 1));
@@ -633,16 +633,16 @@ namespace ADB
                 Datacontainer.dataReader.Close();
                 MessageBox.Show("Inskrivning klar!");
             }
-                
+
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-            if(Datacontainer.fortur == 0)
+            if (Datacontainer.fortur == 0)
             {
                 Datacontainer.fortur = 1;
             }
-            else if(Datacontainer.fortur == 1)
+            else if (Datacontainer.fortur == 1)
             {
                 Datacontainer.fortur = 0;
             }
@@ -650,10 +650,10 @@ namespace ADB
 
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
-           // int indikation = comboBox2.Items.IndexOf
-             int index = comboBox5.FindString(comboBox5.SelectedItem.ToString());
+            // int indikation = comboBox2.Items.IndexOf
+            int index = comboBox5.FindString(comboBox5.SelectedItem.ToString());
             index++;
-          //  comboBox5.SelectedIndex = index;
+            //  comboBox5.SelectedIndex = index;
             Datacontainer.indikation = index;
 
             //String Sql;
@@ -673,14 +673,27 @@ namespace ADB
 
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
-            if(Datacontainer.forskning == 0)
+            if (Datacontainer.forskning == 0)
             {
                 Datacontainer.forskning = 1;
             }
-            else if(Datacontainer.forskning == 1)
+            else if (Datacontainer.forskning == 1)
             {
                 Datacontainer.forskning = 0;
             }
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Datacontainer.orderer_internal == 1)
+            {
+                Datacontainer.orderer_internal = 0;
+            }
+            else if (Datacontainer.orderer_internal == 0)
+            {
+                Datacontainer.orderer_internal = 1;
+            }
+        }
     }
 }
+    
