@@ -218,10 +218,10 @@ namespace ADB
                 }
 
             }
-
+            reader7.Close();
             comboBox8.SelectedIndex = 0;
             comboBox8.Refresh();
-            reader7.Close();
+           
 
 
             /////Frågeställning
@@ -253,10 +253,10 @@ namespace ADB
                 }
 
             }
-
+            reader8.Close();
             comboBox9.SelectedIndex = 0;
             comboBox9.Refresh();
-            reader8.Close();
+           
 
             /////Betalningsansvarig/////////////////////////////////////////////
 
@@ -287,10 +287,10 @@ namespace ADB
                 }
 
             }
-
+            reader9.Close();
             comboBox10.SelectedIndex = 0;
             comboBox10.Refresh();
-            reader9.Close();
+           
 
 
 
@@ -411,7 +411,21 @@ namespace ADB
 
         private void comboBox10_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            String Sql;
+            if (!Datacontainer.internbetalning) {
+                Sql = "SELECT DISTINCT [Index],[Customer Name],CustomerID FROM [dbo].[View Accountable] where Internal = 0 and [Customer name] = '" + comboBox10.SelectedItem.ToString() + "'";
+            }
+            else
+            {
+                Sql = "SELECT DISTINCT [Index],[Customer Name],CustomerID FROM [dbo].[View Accountable] where Internal = 1 and [Customer name] = '" + comboBox10.SelectedItem.ToString() + "'";
+            }
+         
+            Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+            Datacontainer.command.CommandType = CommandType.Text;
+            SqlDataReader reader11 = Datacontainer.command.ExecuteReader();
+            reader11.Read();
+            Datacontainer.betalansvarnummer = (int)reader11.GetValue(0);
+            reader11.Close();
         }
 
         private void label35_Click(object sender, EventArgs e)
@@ -608,8 +622,15 @@ namespace ADB
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Remark", textBox8.Text));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@OrdererInternal", Datacontainer.orderer_internal));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Orderer", 1));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@AccountableInternal", 1));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@Accountable", 1));
+                if (Datacontainer.internbetalning)
+                {
+                    Datacontainer.command.Parameters.Add(new SqlParameter("@AccountableInternal", 1));
+                }
+                else
+                {
+                    Datacontainer.command.Parameters.Add(new SqlParameter("@AccountableInternal", 0));
+                }
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Accountable", Datacontainer.betalansvarnummer));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Result", 7));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Quality", 8));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Diagnosis", "fel"));
