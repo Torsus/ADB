@@ -147,10 +147,10 @@ namespace ADB
                 }
 
             }
-
+            reader5.Close();
             comboBox5.SelectedIndex = 0;
             comboBox5.Refresh();
-            reader5.Close();
+           
 
             ///////////////////////Result///////////////////////////////////////////////
             Sql = "SELECT DISTINCT [Index],Result FROM [dbo].[Result] ORDER BY Result";
@@ -581,7 +581,7 @@ namespace ADB
                 // int personnummerindex;
                 Datacontainer.personnummerindex = (int)reader2.GetValue(0);
 
-
+                reader2.Close();
 
                 Sql = "sp_insert_enkel2";
                 Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
@@ -601,11 +601,11 @@ namespace ADB
                 Datacontainer.command.Parameters.Add(new SqlParameter("@InvoiceDate_s", textBox7.Text));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Indication", Datacontainer.indikation));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Research", Datacontainer.forskning));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@Savedmaterial", 1));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@Canister", "xxx"));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@Box", "fg"));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@Number", "123"));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@Remark", "yyyy"));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Savedmaterial", 0));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Canister", "NULL"));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Box", "NULL"));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Number", "NULL"));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Remark", textBox8.Text));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@OrdererInternal", 1));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Orderer", 1));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@AccountableInternal", 1));
@@ -655,9 +655,9 @@ namespace ADB
             index++;
           //  comboBox5.SelectedIndex = index;
             Datacontainer.indikation = index;
+
             //String Sql;
             //Sql = "Select [Index],Indication from dbo.Indication where dbo.[Indication].Indication = " + comboBox2.SelectedItem.ToString() + "";
-
 
             //Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
             //Datacontainer.command.CommandType = CommandType.Text;
