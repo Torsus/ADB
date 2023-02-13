@@ -592,7 +592,7 @@ namespace ADB
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Signature", textBox1.Text));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@SubmitterName", textBox3.Text));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Submitter", textBox2.Text));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@Type", 1));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Type", Datacontainer.analystyp));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Urgent", 1));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Arriveddate_s", "20121001"));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@InvoiceDate_s", "20121002"));
