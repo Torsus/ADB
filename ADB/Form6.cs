@@ -640,7 +640,7 @@ namespace ADB
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Price_s",textBox13.Text));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@AnsweredDate_s", textBox14.Text));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@InvoiceNr", textBox15.Text));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@Doctor", 11));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Doctor", Datacontainer.Doctorindex));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Metaphase", "yyy"));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Locked", 1));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Change", "zzz"));
@@ -762,6 +762,21 @@ namespace ADB
             {
                 Datacontainer.besvarad = 0;
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String Sql;
+
+            Sql = "SELECT DISTINCT [Index],Doctor FROM [dbo].[Doctor] where  Doctor = '" + comboBox1.SelectedItem.ToString() + "'";
+
+
+            Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+            Datacontainer.command.CommandType = CommandType.Text;
+            SqlDataReader reader14 = Datacontainer.command.ExecuteReader();
+            reader14.Read();
+            Datacontainer.Doctorindex = (int)reader14.GetValue(0);
+            reader14.Close();
         }
     }
 }
