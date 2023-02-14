@@ -182,12 +182,12 @@ namespace ADB
                 }
 
             }
-
+            reader6.Close();
             comboBox6.SelectedIndex = 0;
             comboBox6.Refresh();
             comboBox7.SelectedIndex = 0;
             comboBox7.Refresh();
-            reader6.Close();
+           
 
             ////Quality
 
@@ -633,8 +633,8 @@ namespace ADB
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Accountable", Datacontainer.betalansvarnummer));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Result", Datacontainer.Resultat));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Quality", Datacontainer.Qualityint));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@Diagnosis", "fel"));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@McKusick_s", "12"));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Diagnosis", comboBox9.SelectedItem.ToString()));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@McKusick_s", textBox12.Text));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Answered", 1));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Price_s", "1000"));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@AnsweredDate_s", "20230211"));
