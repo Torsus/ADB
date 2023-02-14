@@ -25,6 +25,8 @@ namespace ADB
             Datacontainer.saved_material = 1;
             Datacontainer.Locked = 1;
             Datacontainer.family = 1;
+            DateTime today = DateTime.Today;
+            textBox6.Text = today.ToString("yyyy-MM-dd");
             String Sql;
 
             Sql = "Select * from [dbo].[Doctor] order by Doctor";
