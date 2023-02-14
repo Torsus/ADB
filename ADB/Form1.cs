@@ -17,11 +17,12 @@ namespace ADB
         public Form1()
         {
             InitializeComponent();
+            Datacontainer.connectsource = "Data Source=Klingen-su-db,62468; Initial Catalog = Klingen;";
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-
+            Datacontainer.connectsource = "Data Source=Klingen-su-db,62468; Initial Catalog = Klingen;";
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)

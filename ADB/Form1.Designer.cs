@@ -44,7 +44,7 @@
             this.label1.Location = new System.Drawing.Point(427, 79);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(524, 29);
+            this.label1.Size = new System.Drawing.Size(403, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Inloggning till Klinisk Genetiks Analysdatabas";
             // 
@@ -53,7 +53,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(427, 258);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(185, 29);
+            this.label2.Size = new System.Drawing.Size(146, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Användarnamn";
             // 
@@ -62,7 +62,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(427, 327);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 29);
+            this.label3.Size = new System.Drawing.Size(87, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "lösenord";
             // 
@@ -70,7 +70,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(681, 258);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(143, 36);
+            this.textBox1.Size = new System.Drawing.Size(143, 30);
             this.textBox1.TabIndex = 3;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -79,16 +79,17 @@
             this.textBox2.Location = new System.Drawing.Point(681, 327);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(143, 36);
+            this.textBox2.Size = new System.Drawing.Size(143, 30);
             this.textBox2.TabIndex = 4;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
             this.radioButton1.Location = new System.Drawing.Point(432, 142);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(258, 33);
+            this.radioButton1.Size = new System.Drawing.Size(203, 29);
             this.radioButton1.TabIndex = 5;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Produktionsdatabas";
@@ -100,9 +101,8 @@
             this.radioButton2.AutoSize = true;
             this.radioButton2.Location = new System.Drawing.Point(435, 200);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(173, 33);
+            this.radioButton2.Size = new System.Drawing.Size(139, 29);
             this.radioButton2.TabIndex = 6;
-            this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Testdatabas";
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
@@ -119,7 +119,7 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 29F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1729, 674);
             this.Controls.Add(this.button1);
