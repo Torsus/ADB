@@ -21,6 +21,10 @@ namespace ADB
             Datacontainer.forskning = 0;
             Datacontainer.internbetalning = true;
             Datacontainer.besvarad = 0;
+            Datacontainer.prenetal = 0;
+            Datacontainer.saved_material = 1;
+            Datacontainer.Locked = 1;
+            Datacontainer.family = 1;
             String Sql;
 
             Sql = "Select * from [dbo].[Doctor] order by Doctor";
@@ -48,10 +52,10 @@ namespace ADB
                 }
 
             }
-
+            reader.Close();
             comboBox1.SelectedIndex = 0;
             comboBox1.Refresh();
-            reader.Close();
+           
 
             ///Avd/sjukhus
             ///
@@ -301,34 +305,43 @@ namespace ADB
             {
                 case 1:
                     Sql = "SELECT [Index],[Type] FROM [dbo].[Type Blood] ORDER BY [Type]";
-                    Datacontainer.tabell = "[dbo].[Type Blood]";
+                    Datacontainer.tabell = "dbo_Analysis Blood";
                     break;
                 case 2:
                     Sql = "SELECT [Index],[Type] FROM [dbo].[Type Foetus] ORDER BY [Type]";
+                    Datacontainer.tabell = "dbo_Analysis Foetus";
                     break;
                 case 3:
                     Sql = "SELECT DISTINCT [Index],[Type] FROM [dbo].[Type FISH] ORDER BY [Type]";
+                    Datacontainer.tabell = "dbo_Analysis FISH";
                     break;
                 case 4:
                     Sql = "SELECT DISTINCT [Index],[Type] FROM [dbo].[Type DNA] ORDER BY [Type]";
+                    Datacontainer.tabell = "dbo_Analysis DNA";
                     break;
                 case 5:
                     Sql = "SELECT DISTINCT [Index],[Type] FROM [dbo].[Type Tumor] ORDER BY [Type]";
+                    Datacontainer.tabell = "dbo_Analysis Tumor";
                     break;
                 case 6:
                     Sql = "SELECT DISTINCT [Index],[Type] FROM [dbo].[Type Counselling] ORDER BY [Type]";
+                    Datacontainer.tabell = "dbo_Analysis Counselling";
                     break;
                 case 7:
                     Sql = "SELECT DISTINCT [Index],[Type] FROM [dbo].[Type Amnion] ORDER BY [Type]";
+                    Datacontainer.tabell = "dbo_Analysis Amnion";
                     break;
                 case 8:
                     Sql = "SELECT DISTINCT [Index],[Type] FROM [dbo].[Type Fibroblast] ORDER BY [Type]";
+                    Datacontainer.tabell = "dbo_Analysis Fibroblast";
                     break;
                 case 9:
                     Sql = "SELECT DISTINCT [Index],[Type] FROM [dbo].[Type Chorion] ORDER BY [Type]";
+                    Datacontainer.tabell = "dbo_Analysis Chorion";
                     break;
                 case 10:
                     Sql = "SELECT DISTINCT [Index],[Type] FROM [dbo].[Type Referral] ORDER BY [Type]";
+                    Datacontainer.tabell = "dbo_Analysis Referral";
                     break;
 
             }
@@ -598,7 +611,7 @@ namespace ADB
 
                 reader2.Close();
 
-                Sql = "sp_insert_enkel2";
+                Sql = "sp_insert_enkel3";
                 Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
                 Datacontainer.command.CommandType = CommandType.StoredProcedure;
 
@@ -616,7 +629,7 @@ namespace ADB
                 Datacontainer.command.Parameters.Add(new SqlParameter("@InvoiceDate_s", textBox7.Text));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Indication", Datacontainer.indikation));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Research", Datacontainer.forskning));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@Savedmaterial", 0));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Savedmaterial", Datacontainer.saved_material));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Canister", "NULL"));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Box", "NULL"));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Number", "NULL"));
@@ -641,15 +654,15 @@ namespace ADB
                 Datacontainer.command.Parameters.Add(new SqlParameter("@AnsweredDate_s", textBox14.Text));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@InvoiceNr", textBox15.Text));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Doctor", Datacontainer.Doctorindex));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@Metaphase", "yyy"));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@Locked", 1));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@Change", "zzz"));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@ResultInternal", "tt"));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@Prenatal", 1));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@ResultInternal2", 100));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@Family", 200));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@CareDate_s", "20121003"));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@SpecimenType", "xxx"));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Metaphase", "NULL"));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Locked", Datacontainer.Locked));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Change", textBox11.Text));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@ResultInternal", textBox9.Text));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Prenatal", Datacontainer.prenetal));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@ResultInternal2", comboBox7.SelectedItem.ToString()));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Family", Datacontainer.family));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@CareDate_s",textBox7.Text));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@SpecimenType", ""));
 
                 Datacontainer.dataReader = Datacontainer.command.ExecuteReader();
                 Datacontainer.dataReader.Close();
@@ -777,6 +790,18 @@ namespace ADB
             reader14.Read();
             Datacontainer.Doctorindex = (int)reader14.GetValue(0);
             reader14.Close();
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            if(Datacontainer.prenetal == 0)
+            {
+                Datacontainer.prenetal = 1;
+            }
+            else if(Datacontainer.prenetal == 1)
+            {
+                Datacontainer.prenetal = 0;
+            }
         }
     }
 }

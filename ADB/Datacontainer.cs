@@ -47,6 +47,10 @@ namespace ADB
         public static int orderer_internal;
         public static int betalansvarnummer;
         public static int Resultat;
+        public static int prenetal;
+        public static int saved_material;
+        public static int Locked;
+        public static int family;
         //  public Form1 f1 = new Form1();
         // public Form2 f2 = new Form2();
     }
