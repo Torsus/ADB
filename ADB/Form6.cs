@@ -637,7 +637,7 @@ namespace ADB
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Diagnosis", comboBox9.SelectedItem.ToString()));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@McKusick_s", textBox12.Text));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Answered", Datacontainer.besvarad));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@Price_s", "1000"));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Price_s",textBox13.Text));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@AnsweredDate_s", "20230211"));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@InvoiceNr", 10));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Doctor", 11));
