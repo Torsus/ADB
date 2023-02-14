@@ -32,6 +32,7 @@ namespace ADB
         public static string Result;
         public static string Quality;
         public static int Qualityint;
+        public static int besvarad;
         public static string Diagnos;
         public static string Betalningsansvarig;
         public static Boolean knappdisable1;

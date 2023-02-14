@@ -20,6 +20,7 @@ namespace ADB
             //      var Indikationlist = new System.Collections.ArrayList();
             Datacontainer.forskning = 0;
             Datacontainer.internbetalning = true;
+            Datacontainer.besvarad = 0;
             String Sql;
 
             Sql = "Select * from [dbo].[Doctor] order by Doctor";
@@ -635,7 +636,7 @@ namespace ADB
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Quality", Datacontainer.Qualityint));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Diagnosis", comboBox9.SelectedItem.ToString()));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@McKusick_s", textBox12.Text));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@Answered", 1));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Answered", Datacontainer.besvarad));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Price_s", "1000"));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@AnsweredDate_s", "20230211"));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@InvoiceNr", 10));
@@ -749,6 +750,18 @@ namespace ADB
             reader13.Read();
             Datacontainer.Qualityint = (int)reader13.GetValue(0);
             reader13.Close();
+        }
+
+        private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        {
+            if(Datacontainer.besvarad == 0)
+            {
+                Datacontainer.besvarad = 1;
+            }
+            else if(Datacontainer.besvarad == 1)
+            {
+                Datacontainer.besvarad = 0;
+            }
         }
     }
 }
