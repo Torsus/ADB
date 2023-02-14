@@ -631,7 +631,7 @@ namespace ADB
                     Datacontainer.command.Parameters.Add(new SqlParameter("@AccountableInternal", 0));
                 }
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Accountable", Datacontainer.betalansvarnummer));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@Result", 7));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Result", Datacontainer.Resultat));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Quality", 8));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Diagnosis", "fel"));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@McKusick_s", "12"));
@@ -714,6 +714,26 @@ namespace ADB
             {
                 Datacontainer.orderer_internal = 1;
             }
+        }
+
+        private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String Sql;
+            
+            Sql = "SELECT DISTINCT [Index],Result FROM [dbo].[Result] where  Result = '" + comboBox6.SelectedItem.ToString() + "'";
+            
+
+            Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+            Datacontainer.command.CommandType = CommandType.Text;
+            SqlDataReader reader12 = Datacontainer.command.ExecuteReader();
+            reader12.Read();
+            Datacontainer.Resultat = (int)reader12.GetValue(0);
+            reader12.Close();
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

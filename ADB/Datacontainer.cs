@@ -43,6 +43,7 @@ namespace ADB
         public static bool internbetalning;
         public static int orderer_internal;
         public static int betalansvarnummer;
+        public static int Resultat;
         //  public Form1 f1 = new Form1();
         // public Form2 f2 = new Form2();
     }
