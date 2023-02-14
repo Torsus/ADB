@@ -639,7 +639,7 @@ namespace ADB
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Answered", Datacontainer.besvarad));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Price_s",textBox13.Text));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@AnsweredDate_s", textBox14.Text));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@InvoiceNr", 10));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@InvoiceNr", textBox15.Text));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Doctor", 11));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Metaphase", "yyy"));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Locked", 1));
