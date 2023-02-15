@@ -749,7 +749,18 @@ namespace ADB
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            String Sql;
 
+            Sql = "SELECT DISTINCT [Index],Address1,Zip,City FROM [dbo].[Orderer] where  [Custumer Name] = '" + comboBox2.SelectedItem.ToString() + "' and  Internal = '" + Datacontainer.orderer_internal + "'";
+
+
+            Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+            Datacontainer.command.CommandType = CommandType.Text;
+            SqlDataReader reader15 = Datacontainer.command.ExecuteReader();
+            reader15.Read();
+            textBox19.Text = (String)reader15.GetValue(1);
+            textBox21.Text = (String)reader15.GetValue(2) + " " + (String)reader15.GetValue(3);
+            reader15.Close();
         }
 
         private void comboBox8_SelectedIndexChanged(object sender, EventArgs e)
@@ -804,6 +815,41 @@ namespace ADB
             {
                 Datacontainer.prenetal = 0;
             }
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
