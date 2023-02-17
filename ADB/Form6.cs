@@ -91,10 +91,10 @@ namespace ADB
                 }
 
             }
-
+            reader2.Close();
             comboBox2.SelectedIndex = 0;
             comboBox2.Refresh();
-            reader2.Close();
+           
 
             /////////////////////////////////////////
             Sql = "SELECT [Idx],[Specimen Type] FROM [dbo].[Specimen Type] ORDER BY [Specimen Type]";
@@ -751,16 +751,26 @@ namespace ADB
         {
             String Sql;
 
-            Sql = "SELECT DISTINCT [Index],Address1,Zip,City FROM [dbo].[Orderer] where  [Custumer Name] = '" + comboBox2.SelectedItem.ToString() + "' and  Internal = '" + Datacontainer.orderer_internal + "'";
 
 
-            Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
-            Datacontainer.command.CommandType = CommandType.Text;
-            SqlDataReader reader15 = Datacontainer.command.ExecuteReader();
-            reader15.Read();
-            textBox19.Text = (String)reader15.GetValue(1);
-            textBox21.Text = (String)reader15.GetValue(2) + " " + (String)reader15.GetValue(3);
-            reader15.Close();
+            String tmp;
+            tmp = (comboBox2.SelectedItem.ToString());
+            if (tmp.Length > 1)
+            {
+                Sql = "SELECT DISTINCT [Index],Address1,Zip,City FROM [dbo].[Orderer] where  [Customer name] = '" + comboBox2.SelectedItem.ToString() + "' and  Internal = '1'";
+
+
+                Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+                Datacontainer.command.CommandType = CommandType.Text;
+                SqlDataReader reader15 = Datacontainer.command.ExecuteReader();
+                reader15.Read();
+                textBox19.Text = (String)reader15.GetValue(1);
+                textBox19.Visible = true;
+                textBox21.Text = (String)reader15.GetValue(2) + " " + (String)reader15.GetValue(3);
+                textBox21.Visible = true;
+                textBox20.Visible = true;
+                reader15.Close();
+            }
         }
 
         private void comboBox8_SelectedIndexChanged(object sender, EventArgs e)
