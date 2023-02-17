@@ -51,6 +51,7 @@ namespace ADB
         public static int saved_material;
         public static int Locked;
         public static int family;
+        public static int orderer;
         //  public Form1 f1 = new Form1();
         // public Form2 f2 = new Form2();
     }

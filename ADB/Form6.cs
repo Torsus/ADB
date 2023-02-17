@@ -637,7 +637,7 @@ namespace ADB
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Number", "NULL"));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@Remark", textBox8.Text));
                 Datacontainer.command.Parameters.Add(new SqlParameter("@OrdererInternal", Datacontainer.orderer_internal));
-                Datacontainer.command.Parameters.Add(new SqlParameter("@Orderer", 1));
+                Datacontainer.command.Parameters.Add(new SqlParameter("@Orderer", Datacontainer.orderer));
                 if (Datacontainer.internbetalning)
                 {
                     Datacontainer.command.Parameters.Add(new SqlParameter("@AccountableInternal", 1));
@@ -769,6 +769,7 @@ namespace ADB
                 textBox21.Text = (String)reader15.GetValue(2) + " " + (String)reader15.GetValue(3);
                 textBox21.Visible = true;
                 textBox20.Visible = true;
+                Datacontainer.orderer = (int)reader15.GetValue(0);
                 reader15.Close();
             }
         }
