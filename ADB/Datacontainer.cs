@@ -19,6 +19,11 @@ namespace ADB
         public static SqlCommand command,command2;
         public static SqlDataReader dataReader;
         public static string personnummer;
+        //  public static string[] personnummerarray;
+        public static List<int> Indexarray = new List<int>();
+        public static List<string> personnummerarray = new List<string>();
+        public static List<string> Familynamearray = new List<string>();
+        public static List<string> Fornamnarray = new List<string>();
         public static int personnummerindex;
         public static string tabell;
         public static string Familyname;

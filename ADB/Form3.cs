@@ -124,15 +124,22 @@ namespace ADB
                 Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
                 Datacontainer.command.CommandType = CommandType.Text;
                 SqlDataReader reader = Datacontainer.command.ExecuteReader();
-                reader.Read();
+                while (reader.Read())
+                {
 
-                Datacontainer.personnummer = (String)reader.GetValue(1);
-                Datacontainer.Familyname = (String)reader.GetValue(2);
-                Datacontainer.fornamn = (String)reader.GetValue(3);
-                Datacontainer.Signature = (String)reader.GetValue(6);
-                int tmpfamnum;
-                tmpfamnum = (int)reader.GetValue(7);
-                Datacontainer.Familjenummer = tmpfamnum.ToString();
+                    Datacontainer.personnummer = (String)reader.GetValue(1);
+                    Datacontainer.Familyname = (String)reader.GetValue(2);
+                    Datacontainer.fornamn = (String)reader.GetValue(3);
+                    Datacontainer.Signature = (String)reader.GetValue(6);
+                    int tmpfamnum;
+                    tmpfamnum = (int)reader.GetValue(7);
+                    Datacontainer.Familjenummer = tmpfamnum.ToString();
+                    Datacontainer.Indexarray.Add((int)reader.GetValue(0));
+                    Datacontainer.personnummerarray.Add((String)reader.GetValue(1));
+                    Datacontainer.Familynamearray.Add((String)reader.GetValue(2));
+                    Datacontainer.Fornamnarray.Add((String)reader.GetValue(3));
+                }
+
                 reader.Close();
             }
             else

@@ -24,11 +24,13 @@ namespace ADB
             dataGridView1.Columns.Add("Personnummer", "Personnummer");
             dataGridView1.Columns.Add("Efternamn", "Efternamn");
             dataGridView1.Columns.Add("Fornamn", "Fornamn");
-            dataGridView1.Rows.Add("Value for column#1"); // [,"column 2",...]
-            dataGridView1.Rows[0].Cells[0].Value = "1";
-            dataGridView1.Rows[0].Cells[1].Value = Datacontainer.personnummer;
-            dataGridView1.Rows[0].Cells[2].Value = Datacontainer.Familyname;
-            dataGridView1.Rows[0].Cells[3].Value = Datacontainer.fornamn;
+            for (int a = 0; a < Datacontainer.Indexarray.Count; a++) {
+                dataGridView1.Rows.Add("Value for column#1"); // [,"column 2",...]
+                dataGridView1.Rows[a].Cells[0].Value = Datacontainer.Indexarray[a];
+                dataGridView1.Rows[a].Cells[1].Value = Datacontainer.personnummerarray[a];
+                dataGridView1.Rows[a].Cells[2].Value = Datacontainer.Familynamearray[a];
+                dataGridView1.Rows[a].Cells[3].Value = Datacontainer.Fornamnarray[a];
+            }
             if (Datacontainer.knappdisable1)
             {
                 button1.Enabled = false;
