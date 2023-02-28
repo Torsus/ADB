@@ -106,10 +106,24 @@ namespace ADB
         private void button1_Click(object sender, EventArgs e)
         {
             String Sql;
-            
-            Datacontainer.personnummer = textBox1.Text + "-" + textBox12.Text;
+
+            if (textBox1.Text.Contains("*"))
+            {
+                Datacontainer.personnummer = textBox1.Text;
+                Datacontainer.personnummer  =  Datacontainer.personnummer.Replace('*', '%');
+            }
+            else if (textBox2.Text.Contains("*"))
+            {
+                Datacontainer.personnummer = textBox1.Text + "-" + textBox12.Text;
+                Datacontainer.personnummer = Datacontainer.personnummer.Replace('*', '%');
+            }
+            else
+            {
+                Datacontainer.personnummer = textBox1.Text + "-" + textBox12.Text;
+             //   Datacontainer.personnummer.Replace('*', '%');
+            }
             //  Sql = "Select Familyname from dbo.[Patients] where [Personal number] = " + Datacontainer.personnummer;
-            Sql = "Select count(*) from dbo.[Patients] where [Personal number] = '" + textBox1.Text + "-" + textBox12.Text + "'";
+            Sql = "Select count(*) from dbo.[Patients] where [Personal number] like '" + Datacontainer.personnummer + "'";
          //   Sql = "Select * from dbo.[Patients]";
         //    Sql = "Select count(*) from dbo.[Patients]";
             Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
@@ -120,7 +134,7 @@ namespace ADB
             if (antal > 0)
             {
                 Datacontainer.knappdisable2 = true;
-                Sql = "Select * from dbo.[Patients] where [Personal number] = '" + textBox1.Text + "-" + textBox12.Text + "'";
+                Sql = "Select * from dbo.[Patients] where [Personal number] like '" + Datacontainer.personnummer + "'";
                 Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
                 Datacontainer.command.CommandType = CommandType.Text;
                 SqlDataReader reader = Datacontainer.command.ExecuteReader();
