@@ -210,10 +210,10 @@
             this.radioButton10.Location = new System.Drawing.Point(242, 129);
             this.radioButton10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radioButton10.Name = "radioButton10";
-            this.radioButton10.Size = new System.Drawing.Size(142, 17);
+            this.radioButton10.Size = new System.Drawing.Size(149, 17);
             this.radioButton10.TabIndex = 12;
             this.radioButton10.TabStop = true;
-            this.radioButton10.Text = "Kromosom Moderkak";
+            this.radioButton10.Text = "Kromosom Moderkaka";
             this.radioButton10.UseVisualStyleBackColor = true;
             this.radioButton10.CheckedChanged += new System.EventHandler(this.radioButton10_CheckedChanged);
             // 
