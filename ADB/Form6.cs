@@ -123,10 +123,10 @@ namespace ADB
                 }
 
             }
-
+            reader3.Close();
             comboBox3.SelectedIndex = 0;
             comboBox3.Refresh();
-            reader3.Close();
+           
             /////////////////Indikation
             Sql = "SELECT DISTINCT [Index],Indication FROM [dbo].[Indication] ORDER BY [Index]";
 
@@ -379,10 +379,10 @@ namespace ADB
                 }
 
             }
-
+            reader4.Close();
             comboBox4.SelectedIndex = 0;
             comboBox4.Refresh();
-            reader4.Close();
+           
 
             Datacontainer.fortur = 0;
             Datacontainer.indikation = 1;
@@ -451,7 +451,129 @@ namespace ADB
 
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string Sql;
+            Sql = "";
             //comboBox4.SetBounds(226, 265, 182, 24);
+            if (!Datacontainer.first_time_price)
+            {
+                switch (Datacontainer.analystyp)
+                {
+
+
+
+                    case 1:
+                        if (checkBox6.Checked)
+                        
+                            Sql = "SELECT [Index],Type,[SU Price] FROM [dbo].[Type Blood] WHERE [dbo].[Type Blood].Type like '" + (comboBox4.SelectedItem.ToString()) + "'";
+                        
+                        else
+                        {
+                            Sql = "SELECT [Index],Type,[Standard Price] FROM [dbo].[Type Blood] WHERE [dbo].[Type Blood].Type like '" + (comboBox4.SelectedItem.ToString()) + "'";
+                        }
+                        break;
+                    case 2:
+                        if (checkBox6.Checked)
+                        {
+                            Sql = "SELECT [Index],Type[SU Price] FROM [dbo].[Type Foetus] WHERE [dbo].[Type Foetus].Type like '" + (comboBox4.SelectedItem.ToString()) + "'";
+                        }
+                        else
+                        {
+                            Sql = "SELECT [Index],Type,[Standard Price] FROM [dbo].[Type Foetus] WHERE [dbo].[Type Foetus].Type like '" + (comboBox4.SelectedItem.ToString()) + "'";
+                        }
+                        break;
+                    case 3:
+                        if (checkBox6.Checked)
+                        {
+                            Sql = "SELECT [Index],Type,[SU Price] FROM [dbo].[Type FISH] WHERE [dbo].[Type FISH].Type like '" + (comboBox4.SelectedItem.ToString()) + "'";
+                        }
+                        else
+                        {
+                            Sql = "SELECT [Index],Type[Standard Price] FROM [dbo].[Type FISH] WHERE [dbo].[Type FISH].Type like '" + (comboBox4.SelectedItem.ToString()) + "'";
+                        }
+                        break;
+                    case 4:
+                        if (checkBox6.Checked)
+                        {
+                            Sql = "SELECT [Index],Type,[SU Price] FROM [dbo].[Type DNA] WHERE [dbo].[Type DNA].Type like '" + (comboBox4.SelectedItem.ToString()) + "'";
+                        }
+                        else
+                        {
+                            Sql = "SELECT [Index],Type,[Standard Price] FROM [dbo].[Type DNA] WHERE [dbo].[Type DNA].Type like '" + (comboBox4.SelectedItem.ToString()) + "'";
+                        }
+                        break;
+                    case 5:
+                        if (checkBox6.Checked)
+                        {
+                            Sql = "SELECT [Index],Type,[SU Price] FROM [dbo].[Type Tumor] WHERE [dbo].[Type Tumor].Type like '" + (comboBox4.SelectedItem.ToString()) + "'";
+                        }
+                        else
+                        {
+                            Sql = "SELECT [Index],Type,[Standard Price] FROM [dbo].[Type Tumor] WHERE [dbo].[Type Tumor].Type like '" + (comboBox4.SelectedItem.ToString()) + "'";
+                        }
+                        break;
+                    case 6:
+                        if (checkBox6.Checked)
+                        {
+                            Sql = "SELECT [Index],Type,[SU Price] FROM [dbo].[Type Counselling] WHERE [dbo].[Type Counselling].Type like '" + (comboBox4.SelectedItem.ToString()) + "'";
+                        }
+                        else
+                        {
+                            Sql = "SELECT [Index],Type,[Standard Price] FROM [dbo].[Type Counselling] WHERE [dbo].[Type Counselling].Type like '" + (comboBox4.SelectedItem.ToString()) + "'";
+                        }
+                        break;
+                    case 7:
+                        if (checkBox6.Checked)
+                        {
+                            Sql = "SELECT [Index],Type,[SU Price] FROM [dbo].[Type Amnion] WHERE [dbo].[Type Amnion].Type like '" + (comboBox4.SelectedItem.ToString()) + "'";
+                        }
+                        else
+                        {
+                            Sql = "SELECT [Index],Type,[Standard Price] FROM [dbo].[Type Amnion] WHERE [dbo].[Type Amnion].Type like '" + (comboBox4.SelectedItem.ToString()) + "'";
+                        }
+                        break;
+
+                    case 8:
+                        if (checkBox6.Checked)
+                        {
+                            Sql = "SELECT [Index],Type,[SU Price] FROM [dbo].[Type Fibroblast] WHERE [dbo].[Type Fibroblast].Type like '" + (comboBox4.SelectedItem.ToString()) + "'";
+                        }
+                        else
+                        {
+                            Sql = "SELECT [Index],Type,[Standard Price] FROM [dbo].[Type Fibroblast] WHERE [dbo].[Type Fibroblast].Type like '" + (comboBox4.SelectedItem.ToString()) + "'";
+                        }
+                        break;
+                    case 9:
+                        if (checkBox6.Checked)
+                        {
+                            Sql = "SELECT [Index],Type,[SU Price] FROM [dbo].[Type Chorion] WHERE [dbo].[Type Chorion].Type like '" + (comboBox4.SelectedItem.ToString()) + "'";
+                        }
+                        else
+                        {
+                            Sql = "SELECT [Index],Type,[Standard Price] FROM [dbo].[Type Chorion] WHERE [dbo].[Type Chorion].Type like '" + (comboBox4.SelectedItem.ToString()) + "'";
+                        }
+                        break;
+                    case 10:
+                        if (checkBox6.Checked)
+                        {
+                            Sql = "SELECT [Index],Type,[SU Price] FROM [dbo].[Type Referral] WHERE [dbo].[Type Referral].Type like '" + (comboBox4.SelectedItem.ToString()) + "'";
+                        }
+                        else
+                        {
+                            Sql = "SELECT [Index],Type,[Standard Price] FROM [dbo].[Type Referral] WHERE [dbo].[Type Referral].Type like '" + (comboBox4.SelectedItem.ToString()) + "'";
+                        }
+                        break;
+
+                }
+                Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+                Datacontainer.command.CommandType = CommandType.Text;
+                SqlDataReader reader12 = Datacontainer.command.ExecuteReader();
+                reader12.Read();
+                   Decimal money;
+                  money = (int)reader12.GetValue(2);
+                textBox13.Text = ((int)reader12.GetValue(2)).ToString();
+                reader12.Close();
+            }
+            Datacontainer.first_time_price = false;
         }
 
         private void comboBox7_SelectedIndexChanged(object sender, EventArgs e)
@@ -859,6 +981,11 @@ namespace ADB
         }
 
         private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

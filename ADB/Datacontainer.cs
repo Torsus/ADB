@@ -49,6 +49,7 @@ namespace ADB
         public static int forskning;
         public static string analystyp_klartext;
         public static bool internbetalning;
+        public static bool first_time_price;
         public static int orderer_internal;
         public static int betalansvarnummer;
         public static int Resultat;

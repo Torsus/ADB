@@ -20,6 +20,7 @@ namespace ADB
 
         private void Skriv_Click(object sender, EventArgs e)
         {
+            Datacontainer.first_time_price = true;
             Form6 f6 = new Form6();
             f6.Text = "Formulär 6";
             f6.ShowDialog(); // Shows Form4
