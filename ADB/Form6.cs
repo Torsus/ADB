@@ -429,11 +429,11 @@ namespace ADB
         {
             String Sql;
             if (!Datacontainer.internbetalning) {
-                Sql = "SELECT DISTINCT [Index],[Customer Name],CustomerID FROM [dbo].[View Accountable] where Internal = 0 and [Customer name] = '" + comboBox10.SelectedItem.ToString() + "'";
+                Sql = "SELECT DISTINCT [Index],[Customer Name],CustomerID,Address1,Address2,Zip,City FROM [dbo].[View Accountable] where Internal = 0 and [Customer name] = '" + comboBox10.SelectedItem.ToString() + "'";
             }
             else
             {
-                Sql = "SELECT DISTINCT [Index],[Customer Name],CustomerID FROM [dbo].[View Accountable] where Internal = 1 and [Customer name] = '" + comboBox10.SelectedItem.ToString() + "'";
+                Sql = "SELECT DISTINCT [Index],[Customer Name],CustomerID,Address1,Address2,Zip,City FROM [dbo].[View Accountable] where Internal = 1 and [Customer name] = '" + comboBox10.SelectedItem.ToString() + "'";
             }
          
             Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
@@ -441,6 +441,11 @@ namespace ADB
             SqlDataReader reader11 = Datacontainer.command.ExecuteReader();
             reader11.Read();
             Datacontainer.betalansvarnummer = (int)reader11.GetValue(0);
+            if (reader11.GetValue(3) != DBNull.Value){
+                textBox16.Text = (string)reader11.GetValue(3);
+                textBox17.Text = (string)reader11.GetValue(4);
+                textBox18.Text = (string)reader11.GetValue(5) + " " + (string)reader11.GetValue(6);
+            }
             reader11.Close();
         }
 
@@ -662,12 +667,40 @@ namespace ADB
                     }
 
                 }
-
+                reader9.Close();
                 comboBox10.SelectedIndex = 0;
                 comboBox10.Refresh();
-                reader9.Close();
+                Sql = "SELECT DISTINCT [Index],[Customer Name],CustomerID,Address1,Address2,Zip,City FROM [dbo].[View Accountable] where Internal = 0 and [Customer name] = '" + comboBox10.SelectedItem.ToString() + "'";
 
-
+                Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+                Datacontainer.command.CommandType = CommandType.Text;
+                SqlDataReader reader11 = Datacontainer.command.ExecuteReader();
+                reader11.Read();
+                Datacontainer.betalansvarnummer = (int)reader11.GetValue(0);
+                if (reader11.GetValue(3) != DBNull.Value)
+                {
+                    textBox16.Text = (string)reader11.GetValue(3);
+                }
+                else
+                {
+                    textBox16.Text = "";
+                }
+                if (reader11.GetValue(4) != DBNull.Value) {
+                    textBox17.Text = (string)reader11.GetValue(4);
+                }
+                else
+                {
+                    textBox17.Text = "";
+                }
+                if (reader11.GetValue(5) != DBNull.Value)
+                {
+                    textBox18.Text = (string)reader11.GetValue(5) + " " + (string)reader11.GetValue(6);
+                }
+                else
+                {
+                    textBox18.Text = "";
+                }
+                reader11.Close();
 
             }
             else
@@ -704,10 +737,47 @@ namespace ADB
                     }
 
                 }
-
+                reader9.Close();
                 comboBox10.SelectedIndex = 0;
                 comboBox10.Refresh();
-                reader9.Close();
+
+
+                Sql = "SELECT DISTINCT [Index],[Customer Name],CustomerID,Address1,Address2,Zip,City FROM [dbo].[View Accountable] where Internal = 1 and [Customer name] = '" + comboBox10.SelectedItem.ToString() + "'";
+
+                Datacontainer.command = new SqlCommand(Sql, Datacontainer.cnn);
+                Datacontainer.command.CommandType = CommandType.Text;
+                SqlDataReader reader11 = Datacontainer.command.ExecuteReader();
+                reader11.Read();
+                Datacontainer.betalansvarnummer = (int)reader11.GetValue(0);
+
+
+                if (reader11.GetValue(3) != DBNull.Value)
+                {
+                    textBox16.Text = (string)reader11.GetValue(3);
+                }
+                else
+                {
+                    textBox16.Text = "";
+                }
+                if (reader11.GetValue(4) != DBNull.Value)
+                {
+                    textBox17.Text = (string)reader11.GetValue(4);
+                }
+                else
+                {
+                    textBox17.Text = "";
+                }
+                if (reader11.GetValue(5) != DBNull.Value)
+                {
+                    textBox18.Text = (string)reader11.GetValue(5) + " " + (string)reader11.GetValue(6);
+                }
+                else
+                {
+                    textBox18.Text = "";
+                }
+
+                reader11.Close();
+
 
             }
         }
