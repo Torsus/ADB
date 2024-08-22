@@ -235,7 +235,7 @@
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(126, 23);
             this.button20.TabIndex = 19;
-            this.button20.Text = "Tabort faktura";
+            this.button20.Text = "Ta bort faktura";
             this.button20.UseVisualStyleBackColor = true;
             // 
             // button21
