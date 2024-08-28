@@ -32,6 +32,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Efternamn = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -47,7 +49,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(220, 28);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(119, 22);
             this.textBox1.TabIndex = 1;
@@ -68,16 +70,34 @@
             this.textBox2.Size = new System.Drawing.Size(119, 22);
             this.textBox2.TabIndex = 3;
             // 
+            // Efternamn
+            // 
+            this.Efternamn.AutoSize = true;
+            this.Efternamn.Location = new System.Drawing.Point(16, 91);
+            this.Efternamn.Name = "Efternamn";
+            this.Efternamn.Size = new System.Drawing.Size(67, 16);
+            this.Efternamn.TabIndex = 4;
+            this.Efternamn.Text = "Efternamn";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(220, 91);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(119, 22);
+            this.textBox3.TabIndex = 5;
+            // 
             // Form8
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1339, 554);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.Efternamn);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form8";
             this.Text = "Form8";
             this.ResumeLayout(false);
@@ -91,5 +111,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label Efternamn;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
