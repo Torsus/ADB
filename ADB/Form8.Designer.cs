@@ -51,6 +51,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -256,11 +257,21 @@
             this.textBox8.Size = new System.Drawing.Size(931, 95);
             this.textBox8.TabIndex = 22;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(12, 313);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(80, 13);
+            this.label10.TabIndex = 23;
+            this.label10.Text = "Äldre versioner:";
+            // 
             // Form8
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1004, 591);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.button5);
@@ -316,5 +327,6 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label10;
     }
 }
