@@ -46,6 +46,7 @@
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -207,11 +208,21 @@
             this.label8.TabIndex = 17;
             this.label8.Text = "Grönt - Kontrollerat personnummer -Ok";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(471, 100);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 49);
+            this.button3.TabIndex = 18;
+            this.button3.Text = "Ändra Familj";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // Form8
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1004, 450);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox7);
@@ -257,5 +268,6 @@
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button3;
     }
 }
