@@ -47,6 +47,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -179,20 +181,20 @@
             // 
             this.textBox6.Location = new System.Drawing.Point(565, 26);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
+            this.textBox6.Size = new System.Drawing.Size(178, 20);
             this.textBox6.TabIndex = 14;
             // 
             // textBox7
             // 
             this.textBox7.Location = new System.Drawing.Point(565, 54);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
+            this.textBox7.Size = new System.Drawing.Size(178, 20);
             this.textBox7.TabIndex = 15;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(704, 33);
+            this.label7.Location = new System.Drawing.Point(769, 33);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(177, 13);
             this.label7.TabIndex = 16;
@@ -202,7 +204,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.YellowGreen;
-            this.label8.Location = new System.Drawing.Point(704, 61);
+            this.label8.Location = new System.Drawing.Point(759, 61);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(187, 13);
             this.label8.TabIndex = 17;
@@ -217,11 +219,31 @@
             this.button3.Text = "Ändra Familj";
             this.button3.UseVisualStyleBackColor = true;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(565, 100);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(47, 46);
+            this.button4.TabIndex = 19;
+            this.button4.Text = "Låst";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(644, 100);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(99, 46);
+            this.button5.TabIndex = 20;
+            this.button5.Text = "Lås upp övrigt";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
             // Form8
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1004, 450);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -269,5 +291,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }
