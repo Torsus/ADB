@@ -49,6 +49,8 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -225,11 +227,29 @@
             this.comboBox5.Size = new System.Drawing.Size(193, 21);
             this.comboBox5.TabIndex = 20;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(27, 305);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(77, 13);
+            this.label12.TabIndex = 21;
+            this.label12.Text = "Internt resultat:";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(169, 305);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(193, 20);
+            this.textBox6.TabIndex = 22;
+            // 
             // Form11
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.comboBox5);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textBox5);
@@ -281,5 +301,7 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox6;
     }
 }
