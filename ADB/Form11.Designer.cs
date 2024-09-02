@@ -65,6 +65,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -375,11 +377,31 @@
             this.button2.Text = "Ja/nej";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(452, 94);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(51, 13);
+            this.label20.TabIndex = 37;
+            this.label20.Text = "Prov slut:";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(639, 94);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 38;
+            this.button3.Text = "Ja/Nej";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // Form11
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(922, 526);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.label20);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.button1);
@@ -418,7 +440,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Form11";
-            this.Text = "Form11";
+            this.Text = "Ja/Nej";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -463,5 +485,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Button button3;
     }
 }
