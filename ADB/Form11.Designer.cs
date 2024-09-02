@@ -67,6 +67,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -395,11 +397,31 @@
             this.button3.Text = "Ja/Nej";
             this.button3.UseVisualStyleBackColor = true;
             // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(452, 119);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(51, 13);
+            this.label21.TabIndex = 39;
+            this.label21.Text = "Inom SU:";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(639, 114);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 40;
+            this.button4.Text = "Ja/Nej";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // Form11
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(922, 526);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.label21);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.button2);
@@ -487,5 +509,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button button4;
     }
 }
