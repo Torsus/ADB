@@ -57,6 +57,10 @@
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -299,11 +303,47 @@
             this.comboBox7.Size = new System.Drawing.Size(193, 21);
             this.comboBox7.TabIndex = 28;
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(27, 428);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(27, 13);
+            this.label16.TabIndex = 29;
+            this.label16.Text = "Pris:";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(169, 428);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(193, 20);
+            this.textBox8.TabIndex = 30;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(27, 463);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(91, 13);
+            this.label17.TabIndex = 31;
+            this.label17.Text = "Betalningsansvar:";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(169, 460);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(193, 20);
+            this.textBox9.TabIndex = 32;
+            // 
             // Form11
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(922, 526);
+            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.comboBox7);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.textBox7);
@@ -371,5 +411,9 @@
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox textBox9;
     }
 }
