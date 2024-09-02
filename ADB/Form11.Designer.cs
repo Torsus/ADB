@@ -81,6 +81,9 @@
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -465,11 +468,11 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(465, 205);
+            this.label25.Location = new System.Drawing.Point(452, 203);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(41, 13);
+            this.label25.Size = new System.Drawing.Size(100, 13);
             this.label25.TabIndex = 46;
-            this.label25.Text = "label25";
+            this.label25.Text = "Använd vårddatum:";
             // 
             // comboBox8
             // 
@@ -529,11 +532,37 @@
             this.textBox8.Size = new System.Drawing.Size(193, 20);
             this.textBox8.TabIndex = 53;
             // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(452, 226);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(41, 13);
+            this.label29.TabIndex = 54;
+            this.label29.Text = "Mellan:";
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(639, 226);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(100, 20);
+            this.textBox12.TabIndex = 55;
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(810, 226);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(100, 20);
+            this.textBox13.TabIndex = 56;
+            // 
             // Form11
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(922, 626);
+            this.Controls.Add(this.textBox13);
+            this.Controls.Add(this.textBox12);
+            this.Controls.Add(this.label29);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.label27);
@@ -649,5 +678,8 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox textBox13;
     }
 }
