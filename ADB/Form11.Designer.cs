@@ -70,6 +70,10 @@
             this.label21 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.textBox11 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -425,11 +429,48 @@
             this.label22.TabIndex = 41;
             this.label22.Text = "Använd ankomst/inskrivningsdatum:";
             // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(452, 175);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(41, 13);
+            this.label23.TabIndex = 42;
+            this.label23.Text = "Mellan:";
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(639, 172);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(100, 20);
+            this.textBox10.TabIndex = 43;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(765, 179);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(28, 13);
+            this.label24.TabIndex = 44;
+            this.label24.Text = "och";
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(810, 172);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(100, 20);
+            this.textBox11.TabIndex = 45;
+            // 
             // Form11
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(922, 526);
+            this.Controls.Add(this.textBox11);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.label23);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label21);
@@ -523,5 +564,9 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox textBox11;
     }
 }
