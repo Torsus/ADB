@@ -61,6 +61,10 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -335,11 +339,51 @@
             this.textBox9.Size = new System.Drawing.Size(193, 20);
             this.textBox9.TabIndex = 32;
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(452, 42);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(56, 13);
+            this.label18.TabIndex = 33;
+            this.label18.Text = "Forskning:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(639, 42);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 34;
+            this.button1.Text = "Ja/Nej";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(452, 69);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(55, 13);
+            this.label19.TabIndex = 35;
+            this.label19.Text = "Besvarad:";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(639, 69);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 36;
+            this.button2.Text = "Ja/nej";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // Form11
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(922, 526);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label18);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.textBox8);
@@ -415,5 +459,9 @@
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button button2;
     }
 }
