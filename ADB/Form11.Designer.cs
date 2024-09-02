@@ -69,6 +69,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
+            this.label22 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -415,11 +416,21 @@
             this.button4.Text = "Ja/Nej";
             this.button4.UseVisualStyleBackColor = true;
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(452, 148);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(179, 13);
+            this.label22.TabIndex = 41;
+            this.label22.Text = "Använd ankomst/inskrivningsdatum:";
+            // 
             // Form11
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(922, 526);
+            this.Controls.Add(this.label22);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.button3);
@@ -511,5 +522,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label22;
     }
 }
