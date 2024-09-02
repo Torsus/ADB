@@ -90,6 +90,9 @@
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -672,11 +675,41 @@
             this.label33.TabIndex = 62;
             this.label33.Text = "och";
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(530, 305);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(531, 23);
+            this.button5.TabIndex = 63;
+            this.button5.Text = "DNA A och B prover";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(612, 545);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 64;
+            this.button6.Text = "Sök";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(845, 545);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 65;
+            this.button7.Text = "backa";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
             // Form11
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1076, 626);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.label33);
             this.Controls.Add(this.label32);
             this.Controls.Add(this.textBox15);
@@ -812,5 +845,8 @@
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
     }
 }
