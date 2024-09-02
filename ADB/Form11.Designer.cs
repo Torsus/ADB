@@ -43,6 +43,10 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -169,11 +173,48 @@
             this.comboBox3.Size = new System.Drawing.Size(193, 21);
             this.comboBox3.TabIndex = 14;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(27, 221);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(56, 13);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Indikation:";
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(169, 218);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(193, 21);
+            this.comboBox4.TabIndex = 16;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(27, 249);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(66, 13);
+            this.label10.TabIndex = 17;
+            this.label10.Text = "Anmärkning:";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(169, 249);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(193, 20);
+            this.textBox5.TabIndex = 18;
+            // 
             // Form11
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.comboBox4);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.comboBox2);
@@ -213,5 +254,9 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox5;
     }
 }
