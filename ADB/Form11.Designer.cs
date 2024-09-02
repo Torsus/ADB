@@ -53,6 +53,8 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -262,11 +264,29 @@
             this.comboBox6.Size = new System.Drawing.Size(193, 21);
             this.comboBox6.TabIndex = 24;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(27, 359);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(60, 13);
+            this.label14.TabIndex = 25;
+            this.label14.Text = "Förändring:";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(169, 359);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(193, 20);
+            this.textBox7.TabIndex = 26;
+            // 
             // Form11
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.comboBox6);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.textBox6);
@@ -326,5 +346,7 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox textBox7;
     }
 }
