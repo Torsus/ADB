@@ -58,7 +58,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.comboBox7 = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -74,6 +73,14 @@
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.textBox11 = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.comboBox9 = new System.Windows.Forms.ComboBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.comboBox10 = new System.Windows.Forms.ComboBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -188,9 +195,9 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(27, 195);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(49, 13);
+            this.label8.Size = new System.Drawing.Size(67, 13);
             this.label8.TabIndex = 13;
-            this.label8.Text = "Prenatal:";
+            this.label8.Text = "Typ av prov:";
             // 
             // comboBox3
             // 
@@ -205,9 +212,9 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(27, 221);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(56, 13);
+            this.label9.Size = new System.Drawing.Size(76, 13);
             this.label9.TabIndex = 15;
-            this.label9.Text = "Indikation:";
+            this.label9.Text = "Typ av analys:";
             // 
             // comboBox4
             // 
@@ -222,13 +229,13 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(27, 249);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(66, 13);
+            this.label10.Size = new System.Drawing.Size(29, 13);
             this.label10.TabIndex = 17;
-            this.label10.Text = "Anmärkning:";
+            this.label10.Text = "Akut";
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(169, 249);
+            this.textBox5.Location = new System.Drawing.Point(169, 526);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(193, 20);
             this.textBox5.TabIndex = 18;
@@ -240,7 +247,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(49, 13);
             this.label11.TabIndex = 19;
-            this.label11.Text = "Resultat:";
+            this.label11.Text = "Prenatal:";
             // 
             // comboBox5
             // 
@@ -255,13 +262,13 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(27, 305);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(77, 13);
+            this.label12.Size = new System.Drawing.Size(56, 13);
             this.label12.TabIndex = 21;
-            this.label12.Text = "Internt resultat:";
+            this.label12.Text = "Indikation:";
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(169, 305);
+            this.textBox6.Location = new System.Drawing.Point(169, 333);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(193, 20);
             this.textBox6.TabIndex = 22;
@@ -271,14 +278,14 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(27, 332);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(86, 13);
+            this.label13.Size = new System.Drawing.Size(66, 13);
             this.label13.TabIndex = 23;
-            this.label13.Text = "Internt resultat 2:";
+            this.label13.Text = "Anmärkning:";
             // 
             // comboBox6
             // 
             this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(169, 332);
+            this.comboBox6.Location = new System.Drawing.Point(169, 305);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(193, 21);
             this.comboBox6.TabIndex = 24;
@@ -288,13 +295,13 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(27, 359);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(60, 13);
+            this.label14.Size = new System.Drawing.Size(49, 13);
             this.label14.TabIndex = 25;
-            this.label14.Text = "Förändring:";
+            this.label14.Text = "Resultat:";
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(169, 359);
+            this.textBox7.Location = new System.Drawing.Point(169, 392);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(193, 20);
             this.textBox7.TabIndex = 26;
@@ -304,14 +311,14 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(27, 392);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(75, 13);
+            this.label15.Size = new System.Drawing.Size(82, 13);
             this.label15.TabIndex = 27;
-            this.label15.Text = "Frågeställning:";
+            this.label15.Text = "Internt Resultat:";
             // 
             // comboBox7
             // 
             this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(169, 392);
+            this.comboBox7.Location = new System.Drawing.Point(169, 359);
             this.comboBox7.Name = "comboBox7";
             this.comboBox7.Size = new System.Drawing.Size(193, 21);
             this.comboBox7.TabIndex = 28;
@@ -321,25 +328,18 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(27, 428);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(27, 13);
+            this.label16.Size = new System.Drawing.Size(86, 13);
             this.label16.TabIndex = 29;
-            this.label16.Text = "Pris:";
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(169, 428);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(193, 20);
-            this.textBox8.TabIndex = 30;
+            this.label16.Text = "Internt resultat 2:";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(27, 463);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(91, 13);
+            this.label17.Size = new System.Drawing.Size(60, 13);
             this.label17.TabIndex = 31;
-            this.label17.Text = "Betalningsansvar:";
+            this.label17.Text = "Förändring:";
             // 
             // textBox9
             // 
@@ -462,11 +462,86 @@
             this.textBox11.Size = new System.Drawing.Size(100, 20);
             this.textBox11.TabIndex = 45;
             // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(465, 205);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(41, 13);
+            this.label25.TabIndex = 46;
+            this.label25.Text = "label25";
+            // 
+            // comboBox8
+            // 
+            this.comboBox8.FormattingEnabled = true;
+            this.comboBox8.Location = new System.Drawing.Point(169, 245);
+            this.comboBox8.Name = "comboBox8";
+            this.comboBox8.Size = new System.Drawing.Size(193, 21);
+            this.comboBox8.TabIndex = 47;
+            // 
+            // comboBox9
+            // 
+            this.comboBox9.FormattingEnabled = true;
+            this.comboBox9.Location = new System.Drawing.Point(169, 425);
+            this.comboBox9.Name = "comboBox9";
+            this.comboBox9.Size = new System.Drawing.Size(193, 21);
+            this.comboBox9.TabIndex = 48;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(27, 491);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(75, 13);
+            this.label26.TabIndex = 49;
+            this.label26.Text = "Frågeställning:";
+            // 
+            // comboBox10
+            // 
+            this.comboBox10.FormattingEnabled = true;
+            this.comboBox10.Location = new System.Drawing.Point(169, 493);
+            this.comboBox10.Name = "comboBox10";
+            this.comboBox10.Size = new System.Drawing.Size(193, 21);
+            this.comboBox10.TabIndex = 50;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(27, 529);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(27, 13);
+            this.label27.TabIndex = 51;
+            this.label27.Text = "Pris:";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(27, 564);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(91, 13);
+            this.label28.TabIndex = 52;
+            this.label28.Text = "Betalningsansvar:";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(169, 561);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(193, 20);
+            this.textBox8.TabIndex = 53;
+            // 
             // Form11
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(922, 526);
+            this.ClientSize = new System.Drawing.Size(922, 626);
+            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.label28);
+            this.Controls.Add(this.label27);
+            this.Controls.Add(this.comboBox10);
+            this.Controls.Add(this.label26);
+            this.Controls.Add(this.comboBox9);
+            this.Controls.Add(this.comboBox8);
+            this.Controls.Add(this.label25);
             this.Controls.Add(this.textBox11);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.textBox10);
@@ -482,7 +557,6 @@
             this.Controls.Add(this.label18);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.label17);
-            this.Controls.Add(this.textBox8);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.comboBox7);
             this.Controls.Add(this.label15);
@@ -552,7 +626,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox comboBox7;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label18;
@@ -568,5 +641,13 @@
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.ComboBox comboBox9;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.ComboBox comboBox10;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox textBox8;
     }
 }

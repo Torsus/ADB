@@ -8,5 +8,10 @@ namespace ADB
         {
             InitializeComponent();
         }
+
+        private void textBox8_TextChanged(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }
