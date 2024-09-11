@@ -16,5 +16,15 @@ namespace ADB
         {
             InitializeComponent();
         }
+        private void Form12_Load(object sender, EventArgs e)
+        {
+            // dataGridView1.co
+            dataGridView1.Columns.Add("Analys", "Analys");
+            dataGridView1.Columns.Add("Analysnr", "Analysnr");
+            dataGridView1.Columns.Add("Typ av analys", "Typ av analys");
+            dataGridView1.Columns.Add("Anmärkning", "Anmärkning");
+            
+
+        }
     }
 }
